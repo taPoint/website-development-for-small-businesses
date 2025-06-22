@@ -1,0 +1,459 @@
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: sans-serif; /* Выберите подходящий шрифт */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4; /* Легкий фон */
+}
+
+.container {
+    max-width: 1100px; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование */
+    padding: 0 20px; /* Отступы по бокам */
+}
+
+/* Шапка */
+header {
+    background: #fff; /* Белый фон */
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Секции */
+section {
+    padding: 60px 0; /* Отступы сверху и снизу */
+}
+
+section:nth-child(odd) {
+    background-color: #fff; /* Чередование фона секций */
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+ font-size: 2.2em; /* Slightly larger font size */
+ font-weight: bold; /* Make the font bold */
+ color: #444; /* A slightly softer color than #333 */
+ margin-bottom: 40px; /* More space below the heading */
+    text-align: center;
+ position: relative; /* Needed for the underline effect */
+ padding-bottom: 15px; /* Space for the underline */
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Кнопки */
+.button {
+    display: inline-block;
+    background: #007bff; /* Синий цвет кнопки */
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+.button:hover {
+    background: #0056b3; /* Темнее при наведении */
+}
+
+/* Улучшенные стили для секции Hero (Главная страница) */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-bg.jpg') no-repeat center center/cover; /* Пример с фоновым изображением и затемнением */
+    color: #fff; /* Белый текст */
+    text-align: center;
+    padding: 100px 20px; /* Большие отступы */
+}
+
+#hero h1 {
+    color: #fff; /* Белый заголовок */
+    font-size: 3em; /* Увеличенный размер заголовка */
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+
+/* Улучшенный стиль кнопки на главной странице */
+#hero .button {
+    background: #28a745; /* Зеленый цвет для привлечения внимания */
+    color: #fff; /* Белый текст */
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#hero .button:hover {
+    background: #218838; /* Темнее при наведении */
+    transform: translateY(-3px);
+}
+
+/* Underline effect for h2 */
+h2::after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: 50%; /* Start from the center */
+ transform: translateX(-50%); /* Center the underline */
+ width: 60px; /* Width of the underline */
+ height: 3px; /* Thickness of the underline */
+ background-color: #007bff; /* Default color of the underline */
+ border-radius: 2px; /* Slightly rounded ends */
+}
+
+/* Style for the h2 in the #why-us section */
+#why-us h2 {
+    /* This rule is no longer needed as the general h2 rule is improved */
+}
+
+/* Specific underline colors for h2 in different sections */
+#why-us h2::after {
+    background-color: #28a745; /* Green for advantages */
+}
+
+#portfolio h2::after {
+    background-color: #ffc107; /* Yellow/Orange for portfolio */
+}
+
+#guarantees h2::after {
+    background-color: #17a2b8; /* Teal for guarantees */
+}
+
+#contact h2::after {
+    background-color: #007bff; /* Blue for contact (matches form button) */
+}
+
+
+
+/* Улучшенные стили для секции О нас */
+#about p {
+    max-width: 800px; /* Ограничим ширину текста */
+    margin: 0 auto 30px auto; /* Центрируем и добавляем отступ снизу */
+    text-align: center;
+    font-size: 1.2em
+}
+
+/* Улучшенные стили для списков в секциях "Услуги", "Почему выбирают нас", "Гарантии" */
+#services ul,
+#why-us ul,
+#guarantees ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка для списков */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+#services li,
+#why-us li,
+#guarantees li {
+    background: #fff;
+    margin-bottom: 0; /* Убираем нижний отступ, так как есть gap */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+#services li {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex; /* Снова используем Flexbox */
+    flex-direction: column; /* Элементы в столбец */
+    align-items: center; /* Выравнивание по центру по горизонтали */
+    text-align: center; /* Центрирование текста */
+}
+
+#services li:hover {
+    transform: translateY(-5px);
+}
+
+#services li i {
+    font-size: 3em; /* Увеличим размер иконок */
+    color: #007bff;
+    margin-bottom: 15px; /* Отступ под иконкой */
+}
+
+#services li h3 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Отступ под заголовком */
+}
+
+#services li p {
+    margin-bottom: 0; /* Убираем нижний отступ у последнего элемента */
+    word-break: break-word; /* На всякий случай оставим перенос слов */
+}
+
+/* Улучшенная стилизация секции "Портфолио" */
+.portfolio-item {
+    background: #fff;
+    padding: 25px; /* Увеличим отступы внутри */
+    border-radius: 8px; /* Слегка скруглим углы */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более выраженная тень */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+    cursor: pointer; /* Покажем, что элемент интерактивный */
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px); /* Небольшой подъем при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усилим тень при наведении */
+}
+
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    display: block; /* Сделаем изображение блочным элементом */
+    margin-left: auto; /* Центрирование изображения */
+    margin-right: auto;
+}
+
+/* Улучшенный стиль заголовков проектов в портфолио */
+.portfolio-item h3 {
+    margin-top: 0;
+    margin-bottom: 15px; /* Увеличим отступ снизу */
+    color: #333; /* Цвет заголовка (можно изменить) */
+    font-size: 1.3em; /* Немного уменьшим размер */
+    border-bottom: 2px solid #eee; /* Нижняя граница */
+    padding-bottom: 10px; /* Отступ под текстом перед границей */
+}
+
+
+.portfolio-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+.portfolio-item img:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+/* Стиль для элементов списка в секции "Наши преимущества" */
+#why-us ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+#why-us li {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#why-us li:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+#why-us li i {
+    font-size: 3.5em;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+#why-us li h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.4em;
+}
+
+#why-us li p {
+    margin-bottom: 0;
+    color: #555;
+    font-size: 1.1em;
+}
+
+#guarantees ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+#guarantees li {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#guarantees li h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#guarantees li p {
+    margin-bottom: 0;
+    color: #555;
+    font-size: 1em;
+}
+
+
+/* Секция "Контакты" */
+.contact-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Улучшенные стили для формы контактов */
+
+/* Дополнительная стилизация формы обратной связи */
+.contact-form {
+    background: #fff; /* Белый фон для формы */
+    padding: 30px; /* Внутренние отступы */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.1em;
+    width: 100%; /* Поля ввода занимают всю доступную ширину */
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
+}
+
+/* Радикальное решение для размера шрифта в textarea */
+#contact .contact-form form textarea {
+    font-size: 1.1em !important; /* Применяем стиль с высокой специфичностью */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.contact-form button {
+    align-self: center;
+    background: #007bff; /* Вернем синий или выберите другой цвет */
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Небольшой отступ сверху кнопки */
+}
+
+.contact-form button:hover {
+    background: #0056b3;
+}
+
+/* Дополнительные стили для визуального улучшения формы */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #888; /* Цвет placeholder'а */
+    font-style: italic;
+}
+
+
+/* Стили для текста про ответ */
+.response-info {
+    text-align: center;
+    margin-top: -20px; /* Поднять текст ближе к заголовку */
+    margin-bottom: 30px;
+    color: #555; /* Цвет текста */
+    font-style: italic; /* Курсив */
+}
+
+
+/* Подвал */
+footer {
+    background: #333; /* Темный фон */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px; /* Отступ сверху */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Стили для текста перед формой контактов */
+.contact-intro {
+    text-align: center;
+    margin-bottom: 30px; /* Добавим отступ снизу */
+}
+
