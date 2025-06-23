@@ -77,6 +77,15 @@ h2 {
  padding-bottom: 15px; /* Space for the underline */
 }
 
+.section-subtitle {
+    font-size: 1.3em; /* Увеличенный размер шрифта */
+    text-align: center; /* Выравнивание по центру */
+    margin-top: -30px; /* Отрицательный отступ сверху */
+    margin-bottom: 40px; /* Отступ снизу */
+    color: #333; /* Более темный цвет текста */
+    font-weight: bold; /* Жирное начертание шрифта */
+}
+
 h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
@@ -146,11 +155,6 @@ h2::after {
  border-radius: 2px; /* Slightly rounded ends */
 }
 
-/* Style for the h2 in the #why-us section */
-#why-us h2 {
-    /* This rule is no longer needed as the general h2 rule is improved */
-}
-
 /* Specific underline colors for h2 in different sections */
 #why-us h2::after {
     background-color: #28a745; /* Green for advantages */
@@ -160,14 +164,14 @@ h2::after {
     background-color: #ffc107; /* Yellow/Orange for portfolio */
 }
 
+
 #guarantees h2::after {
-    background-color: #17a2b8; /* Teal for guarantees */
+    background-color: #0a1eef;
 }
 
 #contact h2::after {
     background-color: #007bff; /* Blue for contact (matches form button) */
 }
-
 
 
 /* Улучшенные стили для секции О нас */
@@ -198,6 +202,37 @@ h2::after {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     text-align: left;
+}
+
+#guarantees li {
+    background: #f8f9fa; /* Немного более темный фон */
+    padding: 25px; /* Увеличим отступы */
+    border-radius: 8px; /* Скругление углов */
+    border: 2px solid #007bff; /* Толстая рамка синего цвета (можно изменить) */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
+    text-align: center; /* Центрирование текста */
+    margin-bottom: 20px; /* Отступ между элементами */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+#guarantees li h3 {
+    margin-top: 0;
+    margin-bottom: 15px; /* Отступ под заголовком */
+    color: #0a1eef; /* Более темный синий для заголовка */
+    font-size: 1.6em; /* Увеличим размер заголовка */
+    font-weight: bold; /* Сделаем заголовок жирным */
+}
+
+#guarantees li p {
+    margin-bottom: 0;
+    color: #333; /* Цвет текста описания */
+    font-size: 1.1em; /* Увеличим размер текста описания */
+}
+
+#guarantees li:hover {
+    background-color: #ffffff; /* Изменение фона при наведении */
+    transform: translateY(-5px); /* Небольшой подъем */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усиление тени */
 }
 
 #services li {
@@ -322,32 +357,28 @@ h2::after {
     font-size: 1.1em;
 }
 
-#guarantees ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
-    gap: 20px; /* Расстояние между элементами */
+
+/* Стили для ссылок в списке "Наши преимущества" */
+#why-us a li {
+    position: relative;
+    overflow: hidden;
 }
 
-#guarantees li {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+#why-us a li::before {
+    content: "Нажмите, чтобы узнать цены подробнее";
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 123, 255, 0.9);
+    color: white;
+    text-align: center;
+    transition: bottom 0.3s ease;
 }
 
-#guarantees li h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-#guarantees li p {
-    margin-bottom: 0;
-    color: #555;
-    font-size: 1em;
+#why-us a li:hover::before {
+    bottom: 0;
 }
 
 
@@ -457,3 +488,22 @@ footer p {
     margin-bottom: 30px; /* Добавим отступ снизу */
 }
 
+
+
+/* Стили для прайс-листа */
+.price-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Сделаем карточку с ценами кликабельной */
+#why-us li {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#why-us li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}

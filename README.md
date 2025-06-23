@@ -1,1 +1,1 @@
-# website-development-for-small-businesses
+A simple HTML/JS/CSS starter template
