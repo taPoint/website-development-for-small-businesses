@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 /* Общие стили */
 body {
     margin: 0;
@@ -37,6 +40,97 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+}
+
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 1001;
+}
+.burger span {
+  height: 4px;
+  background: #007bff;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+  display: block;
+}
+
+/* Адаптация навигации */
+@media (max-width: 600px) {
+  .burger {
+    display: flex;
+  }
+  nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 1000;
+    display: none;
+  }
+  nav.active {
+    display: block;
+    animation: fadeIn 0.2s;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 10px 0;
+  }
+  nav ul li {
+    margin: 10px 0;
+  }
+  nav ul li a {
+    font-size: 1.1em;
+    padding: 10px 0;
+    display: block;
+  }
+  header .container {
+    position: relative;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.burger.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Исправим смещение для симметрии */
+.burger span {
+  transition: 0.3s;
+}
+.burger.open span:nth-child(1),
+.burger.open span:nth-child(3) {
+  width: 100%;
+  left: 0;
+  position: relative;
+}
+
+.burger.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 nav ul li {
@@ -134,20 +228,41 @@ h3 {
 
 /* Улучшенный стиль кнопки на главной странице */
 #hero .button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 30%;
     background: #ff5722; /* Яркий оранжевый цвет для привлечения внимания (можно изменить) */
     color: #fff; /* Белый текст */
     padding: 18px 35px; /* Увеличим отступы для большей заметности */
-    font-size: 1.2em; /* Немного увеличим размер шрифта */
+    font-size: 1em; /* Немного увеличим размер шрифта */
+    white-space: normal;
     border-radius: 35px; /* Чуть большее скругление углов */
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Добавим тень в анимацию */
     display: block; /* Отображение в столбик */
     margin-bottom: 20px;
-    margin-left: 300px; /* Центрирование кнопки */
-    margin-right: 300px; /* Центрирование кнопки */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Добавим тень */
     text-transform: uppercase; /* Сделаем текст заглавными буквами для привлечения внимания */
     letter-spacing: 1px; /* Небольшой межбуквенный интервал */
+}
+
+@media (max-width: 600px) {
+  #hero h1 {
+    font-size: 1.3em;
+  }
+  #hero p {
+    font-size: 0.95em;
+  }
+  #hero .button {
+    width: 95%;
+    font-size: 1em;
+    padding: 14px 5px;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+  }
 }
 
 #hero .button:hover {
@@ -291,6 +406,7 @@ h2::after {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
     cursor: pointer; /* Покажем, что элемент интерактивный */
+    margin-bottom: 10px;
 }
 
 .portfolio-item:hover {
@@ -397,80 +513,109 @@ h2::after {
 }
 
 
-/* Секция "Контакты" */
-.contact-info {
+/* ...existing code... */
+
+#contact {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.postimg.cc/PqdtJLBR/Razrabotka-1-1.jpg') no-repeat center center/cover;
+    color: #fff;
     text-align: center;
-    margin-bottom: 30px;
+    padding: 100px 20px;
+    overflow: hidden;
 }
 
-.contact-info p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-}
-
-/* Улучшенные стили для формы контактов */
-
-/* Дополнительная стилизация формы обратной связи */
-.contact-form {
-    background: #fff; /* Белый фон для формы */
-    padding: 30px; /* Внутренние отступы */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Отступ сверху */
-}
-
-.contact-form form {
-    display: flex;
-    flex-direction: column;
+#contact .container {
+    position: relative;
+    z-index: 1;
     max-width: 500px;
     margin: 0 auto;
+    background: rgba(255,255,255,0.92);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(0, 123, 255, 0.10);
+    padding: 40px 30px 32px 30px;
+    text-align: center;
+    color: #222;
 }
 
-.contact-form input,
-.contact-form textarea {
-    margin-bottom: 15px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+#contact h2 {
+    color: #007bff;
+    margin-bottom: 18px;
+}
+
+#contact .contact-intro,
+#contact .response-info {
+    color: #444;
+    margin-bottom: 10px;
     font-size: 1.1em;
-    width: 100%; /* Поля ввода занимают всю доступную ширину */
-    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
 }
 
-/* Радикальное решение для размера шрифта в textarea */
-#contact .contact-form form textarea {
-    font-size: 1.1em !important; /* Применяем стиль с высокой специфичностью */
+#contact .contact-info {
+    margin-bottom: 18px;
+    color: #333;
+    font-size: 1em;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+#contact .contact-info p {
+    margin: 4px 0;
+}
+
+#contact .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#contact .contact-form input,
+#contact .contact-form textarea {
+    padding: 12px 14px;
+    border: 1px solid #cce1ff;
+    border-radius: 7px;
+    font-size: 1em;
+    background: #f8fbff;
+    transition: border 0.2s;
+    resize: none;
+}
+
+#contact .contact-form input:focus,
+#contact .contact-form textarea:focus {
+    border: 1.5px solid #007bff;
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    background: #fff;
 }
 
-.contact-form button {
-    align-self: center;
-    background: #007bff; /* Вернем синий или выберите другой цвет */
+#contact .contact-form button.button {
+    background: #007bff;
     color: #fff;
-    padding: 12px 25px;
-    font-size: 1.1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 7px;
+    padding: 14px 0;
+    font-size: 1.1em;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px; /* Небольшой отступ сверху кнопки */
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(0,123,255,0.08);
 }
 
-.contact-form button:hover {
+#contact .contact-form button.button:hover {
     background: #0056b3;
+    box-shadow: 0 4px 16px 0 rgba(0,123,255,0.13);
 }
 
-/* Дополнительные стили для визуального улучшения формы */
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #888; /* Цвет placeholder'а */
-    font-style: italic;
+@media (max-width: 600px) {
+    #contact {
+        padding: 40px 5px;
+    }
+    #contact .container {
+        padding: 18px 6px 18px 6px;
+        max-width: 98vw;
+    }
+    #contact h2 {
+        font-size: 1.4em;
+    }
+    #contact .contact-form button.button {
+        font-size: 1em;
+        padding: 12px 0;
+    }
 }
 
 
@@ -490,18 +635,13 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    margin-top: 40px; /* Отступ сверху */
 }
 
 footer p {
     margin: 0;
 }
 
-/* Стили для текста перед формой контактов */
-.contact-intro {
-    text-align: center;
-    margin-bottom: 30px; /* Добавим отступ снизу */
-}
+
 
 
 

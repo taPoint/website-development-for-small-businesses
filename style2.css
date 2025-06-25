@@ -49,12 +49,9 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* .price-card.main-service {
+.price-card {
     border: 2px solid #007bff;
-    grid-column: 1 / -1;
-    max-width: 800px;
-    margin: 0 auto;
-} */
+}
 
 .price-card.main-service {
     border: 2px solid #007bff;
