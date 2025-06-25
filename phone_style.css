@@ -1,0 +1,210 @@
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+
+    /* Общие стили */
+    body {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 0 15px; /* Уменьшаем отступы по бокам */
+    }
+
+    /* Шапка */
+    header .container {
+        flex-direction: column; /* Элементы шапки в столбец */
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Элементы навигации в столбец */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Уменьшаем отступы между пунктами меню */
+    }
+
+    /* Секции */
+    section {
+        padding: 40px 0; /* Уменьшаем отступы секций */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    /* Секция Hero */
+    #hero {
+        padding: 80px 15px; /* Уменьшаем отступы */
+    }
+
+    #hero h1 {
+        font-size: 2.5em;
+    }
+
+    #hero p {
+        font-size: 1em;
+    }
+
+    #hero .button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    /* Секции со списками (Услуги, Преимущества, Гарантии) */
+    #services ul,
+    #why-us ul,
+    #guarantees ul {
+        grid-template-columns: 1fr; /* Элементы в столбец */
+        gap: 15px; /* Уменьшаем расстояние между элементами */
+    }
+
+    #services li,
+    #why-us li,
+    #guarantees li {
+        padding: 20px; /* Уменьшаем внутренние отступы */
+    }
+
+    #services li i {
+        font-size: 2.5em; /* Уменьшаем размер иконок */
+    }
+
+    #why-us li i {
+        font-size: 3em; /* Уменьшаем размер иконок */
+    }
+
+    #guarantees li {
+        padding: 20px; /* Уменьшаем внутренние отступы */
+    }
+
+    #guarantees li h3 {
+        font-size: 1.4em; /* Уменьшаем размер заголовка */
+    }
+
+    #guarantees li p {
+        font-size: 1em; /* Уменьшаем размер текста */
+    }
+
+
+    /* Секция Портфолио */
+    .portfolio-item {
+        padding: 20px; /* Уменьшаем внутренние отступы */
+    }
+
+    .portfolio-item h3 {
+        font-size: 1.2em; /* Уменьшаем размер заголовка */
+    }
+
+    .portfolio-item p {
+        font-size: 0.9em; /* Уменьшаем размер текста */
+    }
+
+    /* Секция Контакты */
+    .contact-form {
+        padding: 20px; /* Уменьшаем внутренние отступы формы */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px; /* Уменьшаем отступы полей ввода */
+        font-size: 1em;
+    }
+
+    #contact .contact-form form textarea {
+        font-size: 1em !important;
+    }
+
+    .contact-form button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    /* Секция Цены */
+     #prices h1 {
+        font-size: 2em;
+     }
+
+     .price-intro {
+         font-size: 1em;
+     }
+
+    .price-grid {
+        grid-template-columns: 1fr; /* Элементы в столбец */
+        gap: 20px;
+    }
+
+    .price-card {
+        padding: 25px;
+        min-height: auto; /* Убираем минимальную высоту */
+    }
+
+    .price-card-header h2 {
+        font-size: 1.6em;
+    }
+
+    .price {
+        font-size: 1.8em;
+    }
+
+    .features li {
+        font-size: 1em;
+    }
+
+    /* Подвал */
+    footer {
+        padding: 15px 0;
+    }
+
+    footer p {
+        font-size: 0.9em;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов (например, смартфоны в портретной ориентации) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .section-subtitle {
+         font-size: 0.9em;
+     }
+
+    #hero h1 {
+        font-size: 2em;
+    }
+
+     #prices h1 {
+         font-size: 1.8em;
+     }
+
+    .price-card-header h2 {
+        font-size: 1.4em;
+    }
+
+    .price {
+        font-size: 1.6em;
+    }
+}
