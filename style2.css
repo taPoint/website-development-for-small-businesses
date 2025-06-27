@@ -15,7 +15,7 @@
     text-align: center;
     color: #666;
     margin-bottom: 40px;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .price-grid {
@@ -135,7 +135,7 @@
 
 /* Стили для примечаний к ценам */
 .price-note {
-    font-size: 0.5em;
+    font-size: 0.6em;
     color: #666;
     display: block;
     margin-top: 5px;
