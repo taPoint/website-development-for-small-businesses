@@ -1,28 +1,28 @@
 /* Стили для страницы с ценами */
 #prices {
-    padding: 60px 0;
-    background-color: #f8f9fa;
+  padding: 60px 0;
+  background-color: #f8f9fa;
 }
 
 #prices h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 2.5em;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5em;
 }
 
 .price-intro {
-    text-align: center;
-    color: #666;
-    margin-bottom: 40px;
-    font-size: 1.3em;
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 1.3em;
 }
 
 .price-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
 /* .price-card {
@@ -34,124 +34,154 @@
 } */
 
 .price-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
+  text-decoration: none;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
 }
 
 .price-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .price-card {
-    border: 2px solid #007bff;
+  border: 2px solid #007bff;
+}
+
+#price-card-header {
+  position: relative;
+  overflow: hidden;
+}
+
+#price-card-header::before {
+  content: "Нажмите, чтобы узнать цены подробнее";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 123, 255, 0.9);
+  color: white;
+  text-align: center;
+  transition: bottom 0.3s ease;
+}
+#price-card-header:hover::before {
+  bottom: 0;
 }
 
 .price-card.main-service {
-    border: 2px solid #007bff;
-    grid-column: 1 / -1;
-    max-width: 800px;
-    margin: 0 auto;
-    min-height: auto;
+  border: 2px solid #007bff;
+  grid-column: 1 / -1;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .price-card.main-service {
+    max-width: 80%;
+  }
 }
 
 .price-card-header {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .price-card-header i {
-    font-size: 2.5em;
-    color: #007bff;
-    margin-bottom: 15px;
+  font-size: 2.5em;
+  color: #007bff;
+  margin-bottom: 15px;
 }
 
 .price-card-header h2 {
-    color: #333;
-    font-size: 1.8em;
-    margin: 10px 0;
+  color: #333;
+  font-size: 1.8em;
+  margin: 10px 0;
 }
 
 .price {
-    font-size: 2em;
-    color: #28a745;
-    font-weight: bold;
-    margin: 15px 0;
+  font-size: 2em;
+  color: #28a745;
+  font-weight: bold;
+  margin: 15px 0;
 }
 
 .description {
-    color: #666;
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    text-align: center;
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .features h3 {
-    color: #333;
-    font-size: 1.3em;
-    margin-bottom: 15px;
+  color: #333;
+  font-size: 1.3em;
+  margin-bottom: 15px;
 }
 
 .features ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .features li {
-    padding: 8px 0;
-    color: #555;
-    position: relative;
-    padding-left: 25px;
+  padding: 8px 0;
+  color: #555;
+  position: relative;
+  padding-left: 25px;
 }
 
 .features li:before {
-    content: "✓";
-    color: #28a745;
-    position: absolute;
-    left: 0;
+  content: "✓";
+  color: #28a745;
+  position: absolute;
+  left: 0;
 }
 
 /* Стили для бесплатных услуг */
 .price-card.free-service {
-    background: #f8f9fa;
-    border: 2px dashed #28a745;
+  background: #f8f9fa;
+  border: 2px dashed #28a745;
 }
 
 .free-label {
-    color: #28a745;
-    font-size: 1.5em;
-    font-weight: bold;
-    background: rgba(40, 167, 69, 0.1);
-    padding: 5px 15px;
-    border-radius: 20px;
-    display: inline-block;
+  color: #28a745;
+  font-size: 1.5em;
+  font-weight: bold;
+  background: rgba(40, 167, 69, 0.1);
+  padding: 5px 15px;
+  border-radius: 20px;
+  display: inline-block;
 }
 
 /* Стили для примечаний к ценам */
 .price-note {
-    font-size: 0.6em;
-    color: #666;
-    display: block;
-    margin-top: 5px;
+  font-size: 0.6em;
+  color: #666;
+  display: block;
+  margin-top: 5px;
 }
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-    .price-card {
-        padding: 20px;
-    }
+  .price-card {
+    padding: 20px;
+  }
 
-    .price-card-header h2 {
-        font-size: 1.5em;
-    }
+  .price-card-header h2 {
+    font-size: 1.5em;
+  }
 
-    .price {
-        font-size: 1.8em;
-    }
+  .price {
+    font-size: 1.8em;
+  }
 }

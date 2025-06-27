@@ -3,45 +3,64 @@ html {
 }
 /* Общие стили */
 body {
-    margin: 0;
-    font-family: sans-serif; /* Выберите подходящий шрифт */
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4; /* Легкий фон */
+  margin: 0;
+  font-family: sans-serif; /* Выберите подходящий шрифт */
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4; /* Легкий фон */
 }
 
 .container {
-    max-width: 1100px; /* Максимальная ширина контента */
-    margin: 0 auto; /* Центрирование */
-    padding: 0 20px; /* Отступы по бокам */
+  max-width: 1100px; /* Максимальная ширина контента */
+  margin: 0 auto; /* Центрирование */
+  padding: 0 20px; /* Отступы по бокам */
 }
 
-/* Шапка */
 header {
-    background: #fff; /* Белый фон */
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  position: fixed; /* Фиксируем шапку */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Убедимся, что шапка поверх всего */
+  background: linear-gradient(to right, rgb(255, 152, 55), rgb(28, 28, 163));
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+#border-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* Высота границы */
+  background: linear-gradient(
+    to right,
+    rgba(255, 152, 55, 0.788),
+    rgb(28, 28, 163)
+  );
+  z-index: 999; /* Под шапкой */
 }
 
 header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
-
 
 .burger {
   display: none;
@@ -54,7 +73,7 @@ nav ul {
 }
 .burger span {
   height: 4px;
-  background: #007bff;
+  background: #ffffff;
   margin: 5px 0;
   border-radius: 2px;
   transition: 0.3s;
@@ -71,8 +90,8 @@ nav ul {
     top: 60px;
     left: 0;
     right: 0;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: linear-gradient(to right, rgb(255, 152, 55), rgb(45, 45, 255));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 1000;
     display: none;
   }
@@ -99,15 +118,17 @@ nav ul {
   }
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .burger.open span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
-.burger.open span:nth-child(2) {
-  opacity: 0;
-}
+
 .burger.open span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
@@ -134,117 +155,124 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
 }
 
 /* Секции */
-section {
-    padding: 60px 0; /* Отступы сверху и снизу */
+.section-main {
+  padding: 60px;
 }
 
 section:nth-child(odd) {
-    background-color: #fff; /* Чередование фона секций */
+  background-color: #fff; /* Чередование фона секций */
 }
 
-h1, h2, h3 {
-    color: #333;
+h1,
+h2,
+h3 {
+  color: #333;
 }
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
 h2 {
- font-size: 2.2em; /* Slightly larger font size */
- font-weight: bold; /* Make the font bold */
- color: #444; /* A slightly softer color than #333 */
- margin-bottom: 40px; /* More space below the heading */
-    text-align: center;
- position: relative; /* Needed for the underline effect */
- padding-bottom: 15px; /* Space for the underline */
+  font-size: 2.2em; /* Slightly larger font size */
+  font-weight: bold; /* Make the font bold */
+  color: #444; /* A slightly softer color than #333 */
+  margin-bottom: 40px; /* More space below the heading */
+  text-align: center;
+  position: relative; /* Needed for the underline effect */
+  padding-bottom: 15px; /* Space for the underline */
 }
 
 .section-subtitle {
-    font-size: 1.3em; /* Увеличенный размер шрифта */
-    text-align: center; /* Выравнивание по центру */
-    margin-top: -30px; /* Отрицательный отступ сверху */
-    margin-bottom: 40px; /* Отступ снизу */
-    color: #333; /* Более темный цвет текста */
-    font-weight: bold; /* Жирное начертание шрифта */
+  font-size: 1.3em; /* Увеличенный размер шрифта */
+  text-align: center; /* Выравнивание по центру */
+  margin-top: -30px; /* Отрицательный отступ сверху */
+  margin-bottom: 40px; /* Отступ снизу */
+  color: #333; /* Более темный цвет текста */
+  font-weight: bold; /* Жирное начертание шрифта */
 }
 
 h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 /* Кнопки */
 .button {
-    display: inline-block;
-    background: #007bff; /* Синий цвет кнопки */
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  background: #007bff; /* Синий цвет кнопки */
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
-
 
 .button:hover {
-    background: #0056b3; /* Темнее при наведении */
+  background: #0056b3; /* Темнее при наведении */
 }
-  
+
 /* Улучшенные стили для секции Hero (Главная страница) */
 
 #hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://i.postimg.cc/PqdtJLBR/Razrabotka-1-1.jpg') no-repeat center center/cover; /* Пример с фоновым изображением и затемнением */
-    color: #fff; /* Белый текст */
-    text-align: center;
-    padding: 100px 20px; /* Большие отступы */
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("https://i.postimg.cc/PqdtJLBR/Razrabotka-1-1.jpg") no-repeat center
+      center/cover; /* Пример с фоновым изображением и затемнением */
+  color: #fff; /* Белый текст */
+  text-align: center;
+  padding: 100px 20px; /* Большие отступы */
 }
 
 #hero .container {
-    position: relative; /* Это нужно, чтобы контент внутри контейнера был над фоном */
-    z-index: 1; /* Убедитесь, что контент виден */
+  position: relative; /* Это нужно, чтобы контент внутри контейнера был над фоном */
+  z-index: 1; /* Убедитесь, что контент виден */
 }
 
 #hero h1 {
-    color: #fff; /* Белый заголовок */
-    font-size: 3em; /* Увеличенный размер заголовка */
+  color: #fff; /* Белый заголовок */
+  font-size: 3em; /* Увеличенный размер заголовка */
 }
 
 #hero p {
-    font-size: 1.4em;
-    margin-bottom: 30px;
+  font-size: 1.4em;
+  margin-bottom: 30px;
 }
-
 
 /* Улучшенный стиль кнопки на главной странице */
 #hero .button {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: 30%;
-    background: #ff5722; /* Яркий оранжевый цвет для привлечения внимания (можно изменить) */
-    color: #fff; /* Белый текст */
-    padding: 18px 35px; /* Увеличим отступы для большей заметности */
-    font-size: 1em; /* Немного увеличим размер шрифта */
-    white-space: normal;
-    border-radius: 35px; /* Чуть большее скругление углов */
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Добавим тень в анимацию */
-    display: block; /* Отображение в столбик */
-    margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Добавим тень */
-    text-transform: uppercase; /* Сделаем текст заглавными буквами для привлечения внимания */
-    letter-spacing: 1px; /* Небольшой межбуквенный интервал */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 30%;
+  background: #ff5722; /* Яркий оранжевый цвет для привлечения внимания (можно изменить) */
+  color: #fff; /* Белый текст */
+  padding: 18px 35px; /* Увеличим отступы для большей заметности */
+  font-size: 1em; /* Немного увеличим размер шрифта */
+  white-space: normal;
+  border-radius: 35px; /* Чуть большее скругление углов */
+  font-weight: bold;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* Добавим тень в анимацию */
+  display: block; /* Отображение в столбик */
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Добавим тень */
+  text-transform: uppercase; /* Сделаем текст заглавными буквами для привлечения внимания */
+  letter-spacing: 1px; /* Небольшой межбуквенный интервал */
 }
 
 @media (max-width: 600px) {
@@ -266,399 +294,400 @@ h3 {
 }
 
 #hero .button:hover {
-    background: #e64a19; /* Темнее при наведении */
-    transform: translateY(-5px); /* Увеличим подъем при наведении */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Усилим тень при наведении */
+  background: #e64a19; /* Темнее при наведении */
+  transform: translateY(-5px); /* Увеличим подъем при наведении */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Усилим тень при наведении */
 }
-
 
 /* Underline effect for h2 */
 h2::after {
- content: '';
- position: absolute;
- bottom: 0;
- left: 50%; /* Start from the center */
- transform: translateX(-50%); /* Center the underline */
- width: 60px; /* Width of the underline */
- height: 3px; /* Thickness of the underline */
- background-color: #007bff; /* Default color of the underline */
- border-radius: 2px; /* Slightly rounded ends */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Start from the center */
+  transform: translateX(-50%); /* Center the underline */
+  width: 60px; /* Width of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #007bff; /* Default color of the underline */
+  border-radius: 2px; /* Slightly rounded ends */
 }
 
 /* Specific underline colors for h2 in different sections */
 #why-us h2::after {
-    background-color: #28a745; /* Green for advantages */
+  background-color: #28a745; /* Green for advantages */
 }
 
 #portfolio h2::after {
-    background-color: #ffc107; /* Yellow/Orange for portfolio */
+  background-color: #ffc107; /* Yellow/Orange for portfolio */
 }
 
-
 #guarantees h2::after {
-    background-color: #0a1eef;
+  background-color: #0a1eef;
 }
 
 #contact h2::after {
-    background-color: #007bff; /* Blue for contact (matches form button) */
+  background-color: #007bff; /* Blue for contact (matches form button) */
 }
-
 
 /* Улучшенные стили для секции О нас */
 #about p {
-    max-width: 800px; /* Ограничим ширину текста */
-    margin: 0 auto 30px auto; /* Центрируем и добавляем отступ снизу */
-    text-align: center;
-    font-size: 1.2em
+  max-width: 800px; /* Ограничим ширину текста */
+  margin: 0 auto 30px auto; /* Центрируем и добавляем отступ снизу */
+  text-align: center;
+  font-size: 1.2em;
 }
 
 /* Улучшенные стили для списков в секциях "Услуги", "Почему выбирают нас", "Гарантии" */
 #services ul,
 #why-us ul,
 #guarantees ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка для списков */
-    gap: 20px; /* Расстояние между элементами */
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Адаптивная сетка для списков */
+  gap: 20px; /* Расстояние между элементами */
 }
 
 #services li,
 #why-us li,
 #guarantees li {
-    background: #fff;
-    margin-bottom: 0; /* Убираем нижний отступ, так как есть gap */
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    text-align: left;
+  background: #fff;
+  margin-bottom: 0; /* Убираем нижний отступ, так как есть gap */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: left;
 }
 
 #guarantees li {
-    background: #f8f9fa; /* Немного более темный фон */
-    padding: 25px; /* Увеличим отступы */
-    border-radius: 8px; /* Скругление углов */
-    border: 2px solid #007bff; /* Толстая рамка синего цвета (можно изменить) */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
-    text-align: center; /* Центрирование текста */
-    margin-bottom: 20px; /* Отступ между элементами */
-    transition: all 0.3s ease; /* Плавные переходы */
+  background: #f8f9fa; /* Немного более темный фон */
+  padding: 25px; /* Увеличим отступы */
+  border-radius: 8px; /* Скругление углов */
+  border: 2px solid #007bff; /* Толстая рамка синего цвета (можно изменить) */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
+  text-align: center; /* Центрирование текста */
+  margin-bottom: 20px; /* Отступ между элементами */
+  transition: all 0.3s ease; /* Плавные переходы */
 }
 
 #guarantees li h3 {
-    margin-top: 0;
-    margin-bottom: 15px; /* Отступ под заголовком */
-    color: #0a1eef; /* Более темный синий для заголовка */
-    font-size: 1.6em; /* Увеличим размер заголовка */
-    font-weight: bold; /* Сделаем заголовок жирным */
+  margin-top: 0;
+  margin-bottom: 15px; /* Отступ под заголовком */
+  color: #0a1eef; /* Более темный синий для заголовка */
+  font-size: 1.6em; /* Увеличим размер заголовка */
+  font-weight: bold; /* Сделаем заголовок жирным */
 }
 
 #guarantees li p {
-    margin-bottom: 0;
-    color: #333; /* Цвет текста описания */
-    font-size: 1.1em; /* Увеличим размер текста описания */
+  margin-bottom: 0;
+  color: #333; /* Цвет текста описания */
+  font-size: 1.1em; /* Увеличим размер текста описания */
 }
 
 #guarantees li:hover {
-    background-color: #ffffff; /* Изменение фона при наведении */
-    transform: translateY(-5px); /* Небольшой подъем */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усиление тени */
+  background-color: #ffffff; /* Изменение фона при наведении */
+  transform: translateY(-5px); /* Небольшой подъем */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усиление тени */
 }
 
 #services li {
-    background: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    display: flex; /* Снова используем Flexbox */
-    flex-direction: column; /* Элементы в столбец */
-    align-items: center; /* Выравнивание по центру по горизонтали */
-    text-align: center; /* Центрирование текста */
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex; /* Снова используем Flexbox */
+  flex-direction: column; /* Элементы в столбец */
+  align-items: center; /* Выравнивание по центру по горизонтали */
+  text-align: center; /* Центрирование текста */
 }
 
 #services li:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 #services li i {
-    font-size: 3em; /* Увеличим размер иконок */
-    color: #007bff;
-    margin-bottom: 15px; /* Отступ под иконкой */
+  font-size: 3em; /* Увеличим размер иконок */
+  color: #007bff;
+  margin-bottom: 15px; /* Отступ под иконкой */
 }
 
 #services li h3 {
-    margin-top: 0;
-    margin-bottom: 10px; /* Отступ под заголовком */
+  margin-top: 0;
+  margin-bottom: 10px; /* Отступ под заголовком */
 }
 
 #services li p {
-    margin-bottom: 0; /* Убираем нижний отступ у последнего элемента */
-    word-break: break-word; /* На всякий случай оставим перенос слов */
+  margin-bottom: 0; /* Убираем нижний отступ у последнего элемента */
+  word-break: break-word; /* На всякий случай оставим перенос слов */
 }
 
 /* Улучшенная стилизация секции "Портфолио" */
 .portfolio-item {
-    background: #fff;
-    padding: 25px; /* Увеличим отступы внутри */
-    border-radius: 8px; /* Слегка скруглим углы */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более выраженная тень */
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
-    cursor: pointer; /* Покажем, что элемент интерактивный */
-    margin-bottom: 10px;
+  background: #fff;
+  padding: 25px; /* Увеличим отступы внутри */
+  border-radius: 8px; /* Слегка скруглим углы */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более выраженная тень */
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* Анимация при наведении */
+  cursor: pointer; /* Покажем, что элемент интерактивный */
+  margin-bottom: 10px;
 }
 
 .portfolio-item:hover {
-    transform: translateY(-5px); /* Небольшой подъем при наведении */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усилим тень при наведении */
+  transform: translateY(-5px); /* Небольшой подъем при наведении */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усилим тень при наведении */
 }
 
 .portfolio-item img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-    display: block; /* Сделаем изображение блочным элементом */
-    margin-left: auto; /* Центрирование изображения */
-    margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  display: block; /* Сделаем изображение блочным элементом */
+  margin-left: auto; /* Центрирование изображения */
+  margin-right: auto;
 }
 
 /* Улучшенный стиль заголовков проектов в портфолио */
 .portfolio-item h3 {
-    margin-top: 0;
-    margin-bottom: 15px; /* Увеличим отступ снизу */
-    color: #333; /* Цвет заголовка (можно изменить) */
-    font-size: 1.3em; /* Немного уменьшим размер */
-    border-bottom: 2px solid #eee; /* Нижняя граница */
-    padding-bottom: 10px; /* Отступ под текстом перед границей */
+  margin-top: 0;
+  margin-bottom: 15px; /* Увеличим отступ снизу */
+  color: #333; /* Цвет заголовка (можно изменить) */
+  font-size: 1.3em; /* Немного уменьшим размер */
+  border-bottom: 2px solid #eee; /* Нижняя граница */
+  padding-bottom: 10px; /* Отступ под текстом перед границей */
 }
 
-
 .portfolio-item p {
-    font-size: 1em;
-    color: #555;
+  font-size: 1em;
+  color: #555;
 }
 
 .portfolio-item img:hover {
-    transform: scale(1.05); /* Увеличение при наведении */
+  transform: scale(1.05); /* Увеличение при наведении */
 }
 
 /* Стиль для элементов списка в секции "Наши преимущества" */
 #why-us ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
 #why-us li {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 #why-us li:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-7px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 #why-us li i {
-    font-size: 3.5em;
-    color: #28a745;
-    margin-bottom: 20px;
+  font-size: 3.5em;
+  color: #28a745;
+  margin-bottom: 20px;
 }
 
 #why-us li h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #333;
-    font-size: 1.4em;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.4em;
 }
 
 #why-us li p {
-    margin-bottom: 0;
-    color: #555;
-    font-size: 1.1em;
+  margin-bottom: 0;
+  color: #555;
+  font-size: 1.1em;
 }
-
 
 /* Стили для ссылок в списке "Наши преимущества" */
 #why-us a li {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 #why-us a li::before {
-    content: "Нажмите, чтобы узнать цены подробнее";
-    position: absolute;
-    bottom: -40px;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    background-color: rgba(0, 123, 255, 0.9);
-    color: white;
-    text-align: center;
-    transition: bottom 0.3s ease;
+  content: "Нажмите, чтобы узнать цены подробнее";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 123, 255, 0.9);
+  color: white;
+  text-align: center;
+  transition: bottom 0.3s ease;
 }
 
 #why-us a li:hover::before {
-    bottom: 0;
+  bottom: 0;
 }
-
 
 /* ...existing code... */
 
 #contact {
-    position: relative;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.postimg.cc/PqdtJLBR/Razrabotka-1-1.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://i.postimg.cc/PqdtJLBR/Razrabotka-1-1.jpg") no-repeat center
+      center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  overflow: hidden;
 }
 
 #contact .container {
-    position: relative;
-    z-index: 1;
-    max-width: 500px;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.92);
-    border-radius: 18px;
-    box-shadow: 0 4px 24px 0 rgba(0, 123, 255, 0.10);
-    padding: 40px 30px 32px 30px;
-    text-align: center;
-    color: #222;
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0, 123, 255, 0.1);
+  padding: 40px 30px 32px 30px;
+  text-align: center;
+  color: #222;
 }
 
 #contact h2 {
-    color: #007bff;
-    margin-bottom: 18px;
+  color: #007bff;
+  margin-bottom: 18px;
 }
 
 #contact .contact-intro,
 #contact .response-info {
-    color: #444;
-    margin-bottom: 10px;
-    font-size: 1.1em;
+  color: #444;
+  margin-top: 2px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
 }
 
 #contact .contact-info {
-    margin-bottom: 18px;
-    color: #333;
-    font-size: 1em;
+  margin-bottom: 18px;
+  color: #333;
+  font-size: 1em;
 }
 
 #contact .contact-info p {
-    margin: 4px 0;
+  margin: 4px 0;
 }
 
 #contact .contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 #contact .contact-form input,
 #contact .contact-form textarea {
-    padding: 12px 14px;
-    border: 1px solid #cce1ff;
-    border-radius: 7px;
-    font-size: 1em;
-    background: #f8fbff;
-    transition: border 0.2s;
-    resize: none;
+  padding: 12px 14px;
+  border: 1px solid #cce1ff;
+  border-radius: 7px;
+  font-size: 1em;
+  background: #f8fbff;
+  transition: border 0.2s;
+  resize: none;
 }
 
 #contact .contact-form input:focus,
 #contact .contact-form textarea:focus {
-    border: 1.5px solid #007bff;
-    outline: none;
-    background: #fff;
+  border: 1.5px solid #007bff;
+  outline: none;
+  background: #fff;
 }
 
 #contact .contact-form button.button {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 7px;
-    padding: 14px 0;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px 0 rgba(0,123,255,0.08);
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 14px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0, 123, 255, 0.08);
 }
 
 #contact .contact-form button.button:hover {
-    background: #0056b3;
-    box-shadow: 0 4px 16px 0 rgba(0,123,255,0.13);
+  background: #0056b3;
+  box-shadow: 0 4px 16px 0 rgba(0, 123, 255, 0.13);
 }
 
 @media (max-width: 600px) {
-    #contact {
-        padding: 40px 5px;
-    }
-    #contact .container {
-        padding: 18px 6px 18px 6px;
-        max-width: 98vw;
-    }
-    #contact h2 {
-        font-size: 1.4em;
-    }
-    #contact .contact-form button.button {
-        font-size: 1em;
-        padding: 12px 0;
-    }
+  #contact {
+    padding: 40px 5px;
+  }
+  #contact .container {
+    padding: 18px 6px 18px 6px;
+    max-width: 98vw;
+  }
+  #contact h2 {
+    font-size: 1.4em;
+  }
+  #contact .contact-form button.button {
+    font-size: 1em;
+    padding: 12px 0;
+  }
 }
-
 
 /* Стили для текста про ответ */
 .response-info {
-    text-align: center;
-    margin-top: -20px; /* Поднять текст ближе к заголовку */
-    margin-bottom: 30px;
-    color: #555; /* Цвет текста */
-    font-style: italic; /* Курсив */
+  text-align: center;
+  margin-top: -20px; /* Поднять текст ближе к заголовку */
+  margin-bottom: 30px;
+  color: #555; /* Цвет текста */
+  font-style: italic; /* Курсив */
 }
-
 
 /* Подвал */
 footer {
-    background: #333; /* Темный фон */
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
+  background: #333; /* Темный фон */
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
 }
 
 footer p {
-    margin: 0;
+  margin: 0;
 }
-
-
-
-
 
 /* Стили для прайс-листа */
 .price-list {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Сделаем карточку с ценами кликабельной */
 #why-us li {
-    cursor: pointer;
-    transition: all 0.3s ease;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #why-us li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
