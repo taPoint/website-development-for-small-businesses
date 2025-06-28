@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
   scroll-behavior: smooth;
 }
@@ -22,7 +26,7 @@ header {
   left: 0;
   right: 0;
   z-index: 1000; /* Убедимся, что шапка поверх всего */
-  background: linear-gradient(to right, rgb(255, 152, 55), rgb(28, 28, 163));
+  background: linear-gradient(to right, rgb(255, 175, 100), rgb(120, 188, 252));
   padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
 }
@@ -35,8 +39,8 @@ header {
   height: 60px; /* Высота границы */
   background: linear-gradient(
     to right,
-    rgba(255, 152, 55, 0.788),
-    rgb(28, 28, 163)
+    rgba(255, 188, 125, 0.788),
+    rgb(70, 134, 253)
   );
   z-index: 999; /* Под шапкой */
 }
@@ -90,7 +94,7 @@ nav ul {
     top: 60px;
     left: 0;
     right: 0;
-    background: linear-gradient(to right, rgb(255, 152, 55), rgb(45, 45, 255));
+    background: linear-gradient(to right, rgb(255, 175, 100), rgb(120, 188, 252));
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 1000;
     display: none;
