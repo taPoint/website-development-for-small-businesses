@@ -26,10 +26,12 @@ header {
   left: 0;
   right: 0;
   z-index: 1000; /* Убедимся, что шапка поверх всего */
-  background: linear-gradient(to right, rgb(255, 175, 100), rgb(120, 188, 252));
+  background: linear-gradient(to right, rgb(250, 231, 212), rgb(221, 243, 248));
   padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
 }
+
+/* linear-gradient(to right, rgb(255, 175, 100), rgb(120, 188, 252)) */
 
 #border-header {
   position: fixed;
@@ -54,8 +56,8 @@ header .container {
 .logo {
   font-size: 1.5em;
   font-weight: bold;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #424242;
+  text-shadow: 0 2px 4px rgb(220, 225, 248);
   text-decoration: none;
 }
 
@@ -164,8 +166,8 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #424242;
+  text-shadow: 0 2px 4px rgb(252, 246, 232);
   font-weight: bold;
 }
 
