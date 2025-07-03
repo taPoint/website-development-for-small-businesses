@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио | TechAid Point</title>
+  <meta name="description" content="Примеры наших работ - сайты, веб-приложения и цифровые решения для бизнеса">
+  <link href="styles_portfolio.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="border-header"></div>
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="logo">TechAid Point</a>
+      <div class="burger" id="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html#about">О нас</a></li>
+          <li><a href="index.html#services">Услуги</a></li>
+          <li><a href="portfolio.html">Портфолио</a></li>
+          <li><a href="index.html#contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="portfolio-page" class="section-main">
+      <div class="container">
+        <h2>Наши работы</h2>
+        <p class="section-subtitle">Проекты, которыми мы гордимся</p>
+        
+        <div class="portfolio-grid">
+          <!-- Сайт кофейни -->
+          <div class="portfolio-card">
+            <div class="card-image">
+              <img src="images/bulochka.jpg" alt="Сайт кофейни Булочка">
+            </div>
+            <div class="card-content">
+              <h3>Сайт-визитка для кофейни "Булочка"</h3>
+              <p>Разработка современного и удобного сайта с меню, галереей и онлайн-заказом. Адаптивный дизайн, быстрая загрузка и интуитивный интерфейс.</p>
+              <div class="tech-stack">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>PHP</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Лендинг для магазина одежды -->
+          <div class="portfolio-card">
+            <div class="card-image">
+              <img src="images/clothes-shop.jpg" alt="Лендинг магазина одежды">
+            </div>
+            <div class="card-content">
+              <h3>Landing Page для магазина одежды</h3>
+              <p>Яркий одностраничник для презентации новой коллекции. Анимации, форма подписки и интеграция с социальными сетями для максимального вовлечения.</p>
+              <div class="tech-stack">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>GSAP</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Командный To-Do лист -->
+          <div class="portfolio-card">
+            <div class="card-image">
+              <img src="images/command-to-do-list.png" alt="Командный To-Do лист">
+            </div>
+            <div class="card-content">
+              <h3>Командный To-Do лист</h3>
+              <p>Веб-приложение для управления задачами в команде. Возможность назначать задачи, устанавливать сроки и отслеживать прогресс по проекту.</p>
+              <div class="tech-stack">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+                <span>REST API</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Калькулятор энтальпии -->
+          <div class="portfolio-card">
+            <div class="card-image">
+              <img src="images/enthalpy-calculator.jpg" alt="Калькулятор энтальпии">
+            </div>
+            <div class="card-content">
+              <h3>Калькулятор энтальпии</h3>
+              <p>Научный инструмент для студентов и химиков. Рассчитывает изменение энтальпии в химических реакциях с визуализацией результатов и экспортом данных.</p>
+              <div class="tech-stack">
+                <span>JavaScript</span>
+                <span>Chart.js</span>
+                <span>Bootstrap</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Обычный To-Do лист -->
+          <div class="portfolio-card">
+            <div class="card-image">
+              <img src="images/personal-to-do-list.png" alt="To-Do лист">
+            </div>
+            <div class="card-content">
+              <h3>Персональный To-Do лист</h3>
+              <p>Минималистичное приложение для управления личными задачами. Локальное хранение данных, фильтрация задач и темная тема.</p>
+              <div class="tech-stack">
+                <span>JavaScript</span>
+                <span>LocalStorage</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Игра "Виселица" -->
+          <div class="portfolio-card">
+            <div class="card-image">
+              <img src="images/hangman-game.jpg" alt="Игра Виселица">
+            </div>
+            <div class="card-content">
+              <h3>Игра "Виселица" (LinguaPlay)</h3>
+              <p>Образовательная версия классической игры с тематическими наборами слов.</p>
+              <div class="tech-stack">
+                <span>JavaScript</span>
+                <span>CSS3</span>
+                <span>Canvas API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 TechAid Point. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Burger menu toggle
+    document.querySelector('.burger').addEventListener('click', function() {
+      this.classList.toggle('open');
+      document.querySelector('nav').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

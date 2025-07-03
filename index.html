@@ -22,7 +22,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <header id="header">
@@ -179,14 +179,14 @@
           <p class="section-subtitle">Примеры наших возможностей</p>
           <div class="portfolio-items">
             <div class="portfolio-item">
-              <h3>Сайт-визитка для кофейни 'Уютное место'</h3>
+              <h3>Сайт-визитка для кофейни "Булочка"</h3>
               <p>
                 Разработка простого и стильного сайта для представления меню и
                 контактной информации кофейни.
               </p>
               <a href="http://185.254.158.49/">
                 <img
-                  src="https://sun9-59.userapi.com/s/v1/if2/ovvPyAroqnjnyG_AaO6oWZSggKzVoRSfae0IV8WI-dY7ymNfmqifQYeHk3sX5sIJ1rprnRDgL3FpieN1uxHI5q5S.jpg?quality=95&as=32x14,48x21,72x31,108x46,160x69,240x103,360x155,480x206,540x232,640x275,720x309,1080x464,1280x549,1440x618,1845x792&from=bu&cs=1845x0"
+                  src="images/bulochka.jpg"
                   alt="Макет сайта кофейни"
                 />
               </a>
@@ -203,6 +203,9 @@
               />
               <!-- Placeholder изображение -->
               <!-- Опционально: <a href="#" target="_blank">Демо</a> -->
+            </div>
+            <div class="portfolio-cta">
+              <a href="portfolio.html" class="button">Посмотреть все работы</a>
             </div>
             <!-- Здесь можно добавить больше проектов -->
           </div>
@@ -305,7 +308,7 @@
             <p>Email: techaid.point@gmail.com</p>
             <p>Telegram/WhatsApp: +7 999 642 9521</p>
             <p>Telegram ID: @techaid_point</p>
-          </div>
+          </div>  
           <div class="contact-form">
             <form action="https://formspree.io/f/xldnwzpz" method="POST">
               <input type="text" name="name" placeholder="Ваше имя" required />
@@ -337,6 +340,24 @@
       </div>
     </footer>
 
+    <script>
+      // Активируем анимацию после полной загрузки страницы
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+        
+        // Дополнительно: плавное появление элементов с задержкой
+        const elements = document.querySelectorAll('.portfolio-item, .price-card');
+        elements.forEach((el, index) => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(20px)';
+          el.style.transition = `all 0.5s ease ${index * 0.1}s`;
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, 100);
+        });
+      });
+    </script>
     <script src="scripts.js"></script>
   </body>
 </html>
