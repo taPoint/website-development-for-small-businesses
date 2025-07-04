@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 html {
   scroll-behavior: smooth;
@@ -698,7 +696,7 @@ footer p {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Плавное появление всей страницы */
+/* Плавное появление всей страницы
 html {
   scroll-behavior: smooth;
 }
@@ -710,4 +708,47 @@ body {
 
 body.loaded {
   opacity: 1;
+} */
+
+/* Эффекты при наведении на пункты меню */
+nav ul li a {
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #007bff; /* Изменение цвета текста при наведении */
+}
+
+/* Подчеркивание при наведении */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Для мобильного меню (если нужно другой эффект) */
+@media (max-width: 600px) {
+  nav ul li a:hover {
+    color: #fff; /* Белый текст в мобильном меню */
+  }
+  
+  nav ul li a::after {
+    display: none; /* Убираем подчеркивание в мобильной версии */
+  }
+  
+  nav ul li a:hover {
+    transform: translateX(5px); /* Сдвиг текста вправо при наведении */
+    transition: transform 0.3s ease;
+  }
 }

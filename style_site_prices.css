@@ -1,62 +1,148 @@
-/* ===== Стили для страницы с прайсом одностраничного сайта ===== */
+/* ===== Обновлённые стили для страницы с ценами ===== */
+body {
+  background: linear-gradient(to bottom, #f8f9fa, #eef7ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+}
 
 .page-title {
   text-align: center;
-  font-size: 2.5em;
-  margin-top: 85px;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 2.8rem;
+  margin-top: 100px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.page-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #ff7e5f, #007bff);
+  border-radius: 2px;
 }
 
 .subtitle {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.3rem;
   color: #555;
-  margin-bottom: 50px;
-  padding: 0 10px;
+  margin-bottom: 60px;
+  padding: 0 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
-section {
-  padding: 10px 0;
+.section-wrapper {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  margin-bottom: 40px;
+  border: 1px solid #e6f0ff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 98, 255, 0.15);
+}
+
+.pricing-section {
+  padding: 15px 0;
+}
+
+.pricing-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.pricing-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  border-radius: 2px;
 }
 
 .pricing-section h3 {
-  font-size: 1.4em;
-  margin-top: 40px;
+  font-size: 1.5rem;
+  margin-top: 45px;
   color: #007bff;
   text-align: left;
-  border-left: 5px solid #007bff;
-  padding-left: 15px;
-  margin-bottom: 15px;
+  border-left: 5px solid;
+  border-image: linear-gradient(to bottom, #007bff, #00c6ff) 1;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pricing-section h3::before {
+  content: "•";
+  font-size: 2rem;
+  color: #007bff;
+  line-height: 1;
 }
 
 .pricing-table {
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 35px;
   background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-}
-
-.pricing-table th,
-.pricing-table td {
-  padding: 16px 20px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .pricing-table th {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
   color: white;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 1.1rem;
+  padding: 18px 25px;
+  text-align: left;
+  position: relative;
+}
+
+.pricing-table th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.pricing-table th:last-child {
+  border-top-right-radius: 12px;
 }
 
 .pricing-table td {
+  padding: 16px 25px;
+  text-align: left;
+  border-bottom: 1px solid #f0f7ff;
   color: #333;
-  font-size: 1em;
+  font-size: 1.05rem;
+  transition: background-color 0.2s ease;
+}
+
+.pricing-table tbody tr:hover td {
+  background-color: #f5fbff;
 }
 
 .pricing-table tbody tr:last-child td {
@@ -64,25 +150,37 @@ section {
 }
 
 .example-section {
-  padding: 40px 20px;
-  border-radius: 10px;
-  margin-top: 30px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  background: #fff;
+  padding: 35px;
+  border-radius: 15px;
+  margin-top: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid #e6f0ff;
+}
+
+.example-section h2 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .price-example-list {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 500px;
-  font-size: 1.1em;
+  max-width: 550px;
+  font-size: 1.15rem;
   color: #333;
 }
 
 .price-example-list li {
-  padding: 8px 0;
-  border-bottom: 1px dashed #ccc;
+  padding: 12px 0;
+  border-bottom: 1px dashed #d0e4ff;
+  display: flex;
+  justify-content: space-between;
 }
 
 .price-example-list li:last-child {
@@ -91,52 +189,185 @@ section {
 
 .price-total {
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 30px;
   color: #28a745;
+  background: rgba(40, 167, 69, 0.08);
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100%;
+  box-shadow: inset 0 0 0 2px rgba(40, 167, 69, 0.2);
 }
 
 .price-note {
   text-align: center;
   color: #2673fd;
-  margin-top: 15px;
-  font-size: 1.2em;
-  max-width: 600px;
+  margin-top: 25px;
+  font-size: 1.25rem;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
+  padding: 18px;
+  background: rgba(38, 115, 253, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid #2673fd;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .price-disclaimer {
-  font-size: 0.9em;
+  font-size: 1rem;
   text-align: center;
-  margin-top: 60px;
-  color: #777;
-  max-width: 700px;
+  margin-top: 70px;
+  color: #6c757d;
+  max-width: 750px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 15px;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border: 1px dashed #dee2e6;
+  line-height: 1.6;
 }
 
-@media (max-width: 600px) {
+.price-disclaimer strong {
+  color: #007bff;
+}
+
+/* Анимации и декоративные элементы */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pricing-section, .example-section {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.pricing-table tr {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.pricing-table tr:nth-child(1) { animation-delay: 0.1s; }
+.pricing-table tr:nth-child(2) { animation-delay: 0.2s; }
+.pricing-table tr:nth-child(3) { animation-delay: 0.3s; }
+.pricing-table tr:nth-child(4) { animation-delay: 0.4s; }
+.pricing-table tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Адаптивность */
+@media (max-width: 768px) {
   .page-title {
-    font-size: 1.8em;
+    font-size: 2.2rem;
+    margin-top: 90px;
   }
+  
   .subtitle {
-    font-size: 1em;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
   }
-  .pricing-table th,
+  
+  .section-wrapper {
+    padding: 20px;
+  }
+  
+  .pricing-section h2 {
+    font-size: 1.7rem;
+  }
+  
+  .pricing-section h3 {
+    font-size: 1.3rem;
+    margin-top: 35px;
+  }
+  
+  .pricing-table th, 
   .pricing-table td {
-    font-size: 0.9em;
-    padding: 12px 14px;
+    padding: 14px 18px;
+    font-size: 0.95rem;
   }
+  
+  .example-section {
+    padding: 25px;
+  }
+  
   .price-example-list {
-    font-size: 1em;
+    font-size: 1rem;
   }
+  
   .price-total {
-    font-size: 1.2em;
+    font-size: 1.5rem;
+    padding: 15px;
   }
+  
+  .price-note {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.9rem;
+    padding-bottom: 15px;
+  }
+  
+  .page-title::after {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .pricing-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .pricing-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .example-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .price-note {
+    font-size: 1rem;
+    padding: 15px;
+  }
+  
   .price-disclaimer {
-    font-size: 0.85em;
+    margin-top: 50px;
+    padding: 20px 15px;
+    font-size: 0.9rem;
   }
+}
+
+/* Декоративные элементы */
+.pricing-table th::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.price-example-list li::before {
+  content: "→";
+  color: #007bff;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.example-section h2::before {
+  content: "🧮";
+  font-size: 1.8rem;
 }

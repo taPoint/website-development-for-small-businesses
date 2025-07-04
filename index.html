@@ -339,25 +339,6 @@
         <!-- Здесь можно добавить ссылки на социальные сети -->
       </div>
     </footer>
-
-    <script>
-      // Активируем анимацию после полной загрузки страницы
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.classList.add('loaded');
-        
-        // Дополнительно: плавное появление элементов с задержкой
-        const elements = document.querySelectorAll('.portfolio-item, .price-card');
-        elements.forEach((el, index) => {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(20px)';
-          el.style.transition = `all 0.5s ease ${index * 0.1}s`;
-          setTimeout(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-          }, 100);
-        });
-      });
-    </script>
     <script src="scripts.js"></script>
   </body>
 </html>
