@@ -4,8 +4,8 @@
   "description": "A simple HTML/JS/CSS starter template",
   "main": "scripts.js",
   "scripts": {
-    "dev": "tailwindcss -i ./style.css -o ./dist/tailwind.css --watch",
-    "build": "tailwindcss -i ./style.css -o ./dist/tailwind.css --minify"
+    "dev": "tailwindcss -i ./css/style.css -o ./dist/tailwind.css --watch",
+    "build": "tailwindcss -i ./css/style.css -o ./dist/tailwind.css --minify"
   },
   "repository": {
     "type": "git",

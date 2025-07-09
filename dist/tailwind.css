@@ -88,7 +88,7 @@ nav ul {
 
 .burger span {
   height: 4px;
-  background: #ffffff;
+  background: #424242;
   margin: 5px 0;
   border-radius: 2px;
   transition: 0.3s;
@@ -107,7 +107,7 @@ nav ul {
     top: 60px;
     left: 0;
     right: 0;
-    background: linear-gradient(to right, rgb(255, 175, 100), rgb(120, 188, 252));
+    background: linear-gradient(to right, rgb(250, 231, 212), rgb(221, 243, 248));
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 1000;
     display: none;
@@ -274,10 +274,9 @@ h3 {
 
 #hero {
   background:
-    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("https://i.postimg.cc/PqdtJLBR/Razrabotka-1-1.jpg") no-repeat center
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/hero-image.jpg") no-repeat center
       center/cover;
-  /* Пример с фоновым изображением и затемнением */
   color: #fff;
   /* Белый текст */
   text-align: center;
@@ -294,77 +293,103 @@ h3 {
 
 #hero h1 {
   color: #fff;
-  /* Белый заголовок */
-  font-size: 3em;
-  /* Увеличенный размер заголовка */
+  font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease;
 }
 
 #hero p {
-  font-size: 1.4em;
-  margin-bottom: 30px;
+  color: #ffffffea;
+  font-size: 1.3em;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Улучшенный стиль кнопки на главной странице */
 
 #hero .button {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 20px;
   width: 30%;
-  background: #ff5722;
-  /* Яркий оранжевый цвет для привлечения внимания (можно изменить) */
+  min-width: 250px;
+  background: linear-gradient(135deg, #ff5722 0%, #ff8a65 100%);
   color: #fff;
-  /* Белый текст */
   padding: 18px 35px;
-  /* Увеличим отступы для большей заметности */
-  font-size: 1em;
-  /* Немного увеличим размер шрифта */
-  white-space: normal;
+  font-size: 0.95em;
   border-radius: 35px;
-  /* Чуть большее скругление углов */
   font-weight: bold;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  /* Добавим тень в анимацию */
-  display: block;
-  /* Отображение в столбик */
-  margin-bottom: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  /* Добавим тень */
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
   text-transform: uppercase;
-  /* Сделаем текст заглавными буквами для привлечения внимания */
   letter-spacing: 1px;
-  /* Небольшой межбуквенный интервал */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+}
+
+#hero .button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgb(233, 255, 35), transparent);
+  transition: 0.4s;
+  z-index: -1;
+}
+
+#hero .button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 127, 88, 0.6);
+}
+
+#hero .button:hover::before {
+  left: 100%;
+}
+
+#hero .button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(255, 87, 34, 0.6);
 }
 
 @media (max-width: 600px) {
   #hero h1 {
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
 
   #hero p {
-    font-size: 0.95em;
+    font-size: 1em;
   }
 
   #hero .button {
     width: 95%;
-    font-size: 1em;
+    font-size: 0.9em;
     padding: 14px 5px;
     min-width: 0;
     max-width: 100%;
     white-space: normal;
     word-break: break-word;
   }
-}
-
-#hero .button:hover {
-  background: #e64a19;
-  /* Темнее при наведении */
-  transform: translateY(-5px);
-  /* Увеличим подъем при наведении */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  /* Усилим тень при наведении */
 }
 
 /* Underline effect for h2 */
@@ -896,4 +921,33 @@ nav ul li a:hover::after {
     /* Сдвиг текста вправо при наведении */
     transition: transform 0.3s ease;
   }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
 }
