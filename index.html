@@ -320,14 +320,34 @@
                 placeholder="Ваш телефон"
                 required
               />
-              <!-- Телефон не обязателен -->
-              <input type="email" name="email" placeholder="Ваш Email" />
-              <!-- Email обязателен -->
+              <!-- Телефон обязателен -->
+              <input type="email" name="email" placeholder="Ваш Email (*не обязателен)" />
+              <!-- Email не обязателен -->
+              
               <textarea
                 name="message"
                 placeholder="Ваше сообщение"
                 required
               ></textarea>
+
+              <div class="contact-methods">
+                <label>Как с вами связаться? (можно выбрать несколько)</label>
+                <div class="method-options">
+                  <label>
+                    <input type="checkbox" name="contact_method[]" value="whatsapp">
+                    <span>WhatsApp</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="contact_method[]" value="telegram">
+                    <span>Telegram</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="contact_method[]" value="email">
+                    <span>Email</span>
+                  </label>
+                </div>
+              </div>
+              
               <button type="submit" class="button">Отправить заявку</button>
             </form>
           </div>

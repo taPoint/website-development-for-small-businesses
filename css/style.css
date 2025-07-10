@@ -590,8 +590,8 @@ h2::after {
 #contact {
   position: relative;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://i.postimg.cc/PqdtJLBR/Razrabotka-1-1.jpg") no-repeat center
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../images/contact.png") no-repeat center
       center/cover;
   color: #fff;
   text-align: center;
@@ -735,20 +735,6 @@ footer p {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Плавное появление всей страницы
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-body.loaded {
-  opacity: 1;
-} */
-
 /* Эффекты при наведении на пункты меню */
 nav ul li a {
   position: relative;
@@ -819,4 +805,56 @@ nav ul li a:hover::after {
   width: 24px;
   height: 24px;
   filter: invert(1);
+}
+
+#contact .contact-form select:focus {
+  border: 1.5px solid #007bff;
+  outline: none;
+  background-color: #fff;
+}
+
+/* Для старых браузеров (если нужно) */
+#contact .contact-form select::-ms-expand {
+  display: none;
+}
+
+.contact-methods {
+  margin-bottom: 15px;
+}
+
+.contact-methods label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #444;
+}
+
+.method-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.method-options label {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: #f8fbff;
+  border: 1px solid #cce1ff;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.method-options label:hover {
+  border-color: #007bff;
+}
+
+.method-options input {
+  margin-right: 8px;
+}
+
+.method-options input:checked + span {
+  color: #007bff;
+  font-weight: bold;
 }

@@ -163,6 +163,7 @@ body {
   color: #2c3e50;
   margin-bottom: 30px;
   display: flex;
+  text-align: center;
   align-items: center;
   gap: 15px;
 }
@@ -178,6 +179,7 @@ body {
 
 .price-example-list li {
   padding: 12px 0;
+  text-align: left;
   border-bottom: 1px dashed #d0e4ff;
   display: flex;
   justify-content: space-between;
@@ -365,9 +367,4 @@ body {
   color: #007bff;
   margin-right: 10px;
   font-weight: bold;
-}
-
-.example-section h2::before {
-  content: "🧮";
-  font-size: 1.8rem;
 }
