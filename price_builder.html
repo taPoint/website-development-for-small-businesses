@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Конструктор сайта | TechAid Point</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/price_builder.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <a class="logo" href="index.html">TechAid Point</a>
+        <div class="burger" id="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html#about">О нас</a></li>
+            <li><a href="index.html#services">Услуги</a></li>
+            <li><a href="index.html#advantages">Наши преимущества</a></li>
+            <li><a href="index.html#portfolio">Портфолио</a></li>
+            <li><a href="index.html#contact">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="border-header"></div>
+
+    <div class="container">
+      <h1 class="page-title">Конструктор стоимости вашего сайта</h1>
+      <p class="subtitle">
+        Соберите сайт по частям и сразу узнайте итоговую стоимость
+      </p>
+
+      <div class="builder-container">
+        <div class="builder-content">
+          <section class="builder-section">
+            <h2><i class="fas fa-cubes"></i> Основные части сайта</h2>
+            <div class="items-grid">
+              <!-- Шапка сайта -->
+              <div class="item-card">
+                <h3>Шапка сайта</h3>
+                <p class="item-description">Логотип, фон, заголовок или слоган</p>
+                <div class="item-price">200₽</div>
+                <button class="add-btn" data-item="Шапка сайта" data-price="200">Добавить</button>
+              </div>
+
+              <!-- Подвал -->
+              <div class="item-card">
+                <h3>Подвал (footer)</h3>
+                <p class="item-description">Контакты, соцсети, копирайт</p>
+                <div class="item-price">125₽</div>
+                <button class="add-btn" data-item="Подвал сайта" data-price="125">Добавить</button>
+              </div>
+
+              <!-- Смысловой блок -->
+              <div class="item-card">
+                <h3>Смысловой блок</h3>
+                <p class="item-description">О нас, Услуги, Преимущества (с заголовком, текстом и иконками)</p>
+                <div class="item-price">200-300₽</div>
+                <select class="item-option" data-item="Смысловой блок">
+                  <option value="200">Простой (200₽)</option>
+                  <option value="250">Стандартный (250₽)</option>
+                  <option value="300">Сложный (300₽)</option>
+                </select>
+                <button class="add-btn" data-item="Смысловой блок" data-price="250">Добавить</button>
+              </div>
+
+              <!-- Админ-панель -->
+              <div class="item-card">
+                <h3>Панель администрирования</h3>
+                <p class="item-description">Страница администратора с защитой от атак (без функций)</p>
+                <div class="item-price">350₽</div>
+                <button class="add-btn" data-item="Админ-панель" data-price="350">Добавить</button>
+              </div>
+
+              <!-- Функции -->
+              <div class="item-card">
+                <h3>Дополнительные функции</h3>
+                <p class="item-description">Корзина, оплата, управление контентом</p>
+                <div class="item-price">200-350₽</div>
+                <select class="item-option" data-item="Дополнительная функция">
+                  <option value="200">Базовая (200₽)</option>
+                  <option value="250">Стандартная (250₽)</option>
+                  <option value="300">Расширенная (300₽)</option>
+                  <option value="350">Полная (350₽)</option>
+                </select>
+                <button class="add-btn" data-item="Дополнительная функция" data-price="250">Добавить</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="builder-section">
+            <h2><i class="fas fa-th-large"></i> Каталог товаров</h2>
+            <div class="items-grid">
+              <!-- Блок каталога -->
+              <div class="item-card">
+                <h3>Блок "Каталог товаров"</h3>
+                <p class="item-description">Сетка карточек, стили, адаптация</p>
+                <div class="item-price">250₽</div>
+                <button class="add-btn" data-item="Блок каталога" data-price="250">Добавить</button>
+              </div>
+
+              <!-- Карточки товаров -->
+              <div class="item-card">
+                <h3>Карточки товаров</h3>
+                <p class="item-description">Оформление карточек для каталога</p>
+                <div class="item-price">50₽ за шт.</div>
+                <div class="quantity-control">
+                  <button class="quantity-btn minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="100">
+                  <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="add-btn" data-item="Карточки товаров" data-price="50" data-quantity="1">Добавить</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="builder-section">
+            <h2><i class="fas fa-mobile-alt"></i> Адаптивность</h2>
+            <div class="items-grid">
+              <!-- Адаптация -->
+              <div class="item-card">
+                <h3>Адаптация под мобильные</h3>
+                <p class="item-description">Корректное отображение на телефонах</p>
+                <div class="item-price">300₽</div>
+                <button class="add-btn" data-item="Адаптация под мобильные" data-price="300">Добавить</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="builder-section">
+            <h2><i class="fas fa-cogs"></i> Дополнительные услуги</h2>
+            <div class="items-grid">
+              <!-- Размещение -->
+              <div class="item-card">
+                <h3>Размещение сайта</h3>
+                <p class="item-description">Домен + хостинг + SSL на 1 месяц</p>
+                <div class="item-price">115₽/мес</div>
+                <button class="add-btn" data-item="Размещение сайта" data-price="115">Добавить</button>
+              </div>
+
+              <!-- Telegram-бот -->
+              <div class="item-card">
+                <h3>Telegram-бот</h3>
+                <p class="item-description">Для приёма заказов и уведомлений</p>
+                <div class="item-price">250₽</div>
+                <button class="add-btn" data-item="Telegram-бот" data-price="250">Добавить</button>
+              </div>
+
+              <!-- Форма обратной связи -->
+              <div class="item-card">
+                <h3>Форма обратной связи</h3>
+                <p class="item-description">Подключение мессенджеров или email</p>
+                <div class="item-price">150₽</div>
+                <button class="add-btn" data-item="Форма обратной связи" data-price="150">Добавить</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="builder-sidebar">
+          <div class="cart-container">
+            <h2><i class="fas fa-shopping-cart"></i> Ваша корзина</h2>
+            <div class="cart-items">
+              <!-- Здесь будут добавляться выбранные элементы -->
+              <p class="empty-cart">Выберите элементы сайта слева</p>
+            </div>
+            
+            <div class="cart-summary">
+              <div class="summary-row">
+                <span>Стоимость сайта:</span>
+                <span class="site-total">0₽</span>
+              </div>
+              <div class="summary-row">
+                <span>Стоимость услуг:</span>
+                <span class="services-total">0₽</span>
+              </div>
+              <div class="summary-row total">
+                <span>Итого:</span>
+                <span class="grand-total">0₽</span>
+              </div>
+            </div>
+            
+            <button class="checkout-btn">Оформить заказ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="social-icons">
+          <a href="https://t.me/ваш_телеграм" class="social-icon" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+          </a>
+          <a href="mailto:ваш_email@gmail.com" class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
+          </a>
+          <a href="https://vk.com/ваш_профиль" class="social-icon" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" alt="VK">
+          </a>
+          <a href="https://www.instagram.com/ваш_профиль" class="social-icon" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </a>
+        </div>
+        <p>&copy; 2025 TechAid Point. Все права защищены.</p>
+      </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="price_builder.js"></script>
+  </body>
+</html>

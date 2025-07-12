@@ -368,3 +368,28 @@ body {
   margin-right: 10px;
   font-weight: bold;
 }
+
+.builder-btn-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.builder-btn {
+  display: inline-block;
+  padding: 15px 25px;
+  background: #4361ee;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.builder-btn:hover {
+  background: #3a56d4;
+  transform: translateY(-2px);
+}
+
+.builder-btn i {
+  margin-right: 10px;
+}
