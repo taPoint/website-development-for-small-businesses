@@ -1,3 +1,4 @@
+
 /* Основные стили конструктора */
 .builder-container {
     display: flex;
@@ -222,3 +223,180 @@
       margin-top: 30px;
     }
   }
+
+  /* Стили для кнопки "Добавлено" */
+.add-btn.added {
+  background-color: #4CAF50;
+  cursor: default;
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.builder-sidebar {
+  background: white;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.builder-sidebar.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cart-overlay.open {
+  display: flex;
+}
+
+/* Обновлённые стили для значка корзины */
+.cart-floating {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cart-floating .cart-icon {
+  position: relative;
+  background-color: #4361ee;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+  transition: all 0.3s;
+}
+
+.cart-floating .cart-icon:hover {
+  background-color: #3a56d4;
+  transform: scale(1.1);
+}
+
+.cart-floating .cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #f72585;
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Анимация */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-15px);}
+  60% {transform: translateY(-7px);}
+}
+
+.bounce {
+  animation: bounce 0.8s;
+}
+
+/* Кнопка закрытия */
+.cart-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #666;
+}
+
+.cart-close:hover {
+  color: #f72585;
+}
+
+.cart-item-remove {
+  color: #f72585;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: color 0.3s; 
+}
+
+.cart-item-remove:hover {
+  color: #d3165e;
+}
+
+/* Стили для управления количеством в корзине */
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-item-quantity button {
+  width: 25px;
+  height: 25px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.cart-item-quantity button:hover {
+  background: #e0e0e0;
+}
+
+.cart-item-quantity span {
+  min-width: 20px;
+  text-align: center;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  gap: 10px;
+}
+
+.cart-item-name {
+  flex: 1;
+}
+
+.cart-item-price {
+  min-width: 80px;
+  text-align: right;
+  font-weight: bold;
+}
+
+
+

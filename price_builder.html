@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Конструктор сайта | TechAid Point</title>
+    <title>Калькулятор стоимости | TechAid Point</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/price_builder.css" />
     <link
@@ -34,10 +34,12 @@
     <div id="border-header"></div>
 
     <div class="container">
-      <h1 class="page-title">Конструктор стоимости вашего сайта</h1>
-      <p class="subtitle">
-        Соберите сайт по частям и сразу узнайте итоговую стоимость
-      </p>
+      <div class="page-header">
+        <h1 class="page-title">Калькулятор стоимости услуг</h1>
+        <p class="subtitle">
+          Соберите нужные элементы и сразу узнайте ориентировочную стоимость
+        </p>
+      </div>
 
       <div class="builder-container">
         <div class="builder-content">
@@ -65,12 +67,7 @@
                 <h3>Смысловой блок</h3>
                 <p class="item-description">О нас, Услуги, Преимущества (с заголовком, текстом и иконками)</p>
                 <div class="item-price">200-300₽</div>
-                <select class="item-option" data-item="Смысловой блок">
-                  <option value="200">Простой (200₽)</option>
-                  <option value="250">Стандартный (250₽)</option>
-                  <option value="300">Сложный (300₽)</option>
-                </select>
-                <button class="add-btn" data-item="Смысловой блок" data-price="250">Добавить</button>
+                <button class="add-btn" data-item="Смысловой блок" data-min-price="200" data-max-price="300">Добавить</button>
               </div>
 
               <!-- Админ-панель -->
@@ -83,16 +80,16 @@
 
               <!-- Функции -->
               <div class="item-card">
-                <h3>Дополнительные функции</h3>
-                <p class="item-description">Корзина, оплата, управление контентом</p>
-                <div class="item-price">200-350₽</div>
-                <select class="item-option" data-item="Дополнительная функция">
-                  <option value="200">Базовая (200₽)</option>
-                  <option value="250">Стандартная (250₽)</option>
-                  <option value="300">Расширенная (300₽)</option>
-                  <option value="350">Полная (350₽)</option>
+                <h3>Функции сайта</h3>
+                <p class="item-description">Выберите нужные функции для вашего сайта</p>
+                <select class="item-option" data-item="Дополнительные функции">
+                  <option value="200">Добавление корзины</option>
+                  <option value="250">Функция управления меню/каталогом товаров</option>
+                  <option value="300">Функция управления часами работы</option>
+                  <option value="350">Функция онлайн оплаты и/или онлайн-заказов</option>
+                  <option value="150">Другая функция</option>
                 </select>
-                <button class="add-btn" data-item="Дополнительная функция" data-price="250">Добавить</button>
+                <button class="add-btn" data-item="" data-price="250">Добавить</button>
               </div>
             </div>
           </section>
@@ -137,13 +134,13 @@
           </section>
 
           <section class="builder-section">
-            <h2><i class="fas fa-cogs"></i> Дополнительные услуги</h2>
+            <h2><i class="fas fa-cogs"></i> Услуги</h2>
             <div class="items-grid">
               <!-- Размещение -->
               <div class="item-card">
                 <h3>Размещение сайта</h3>
                 <p class="item-description">Домен + хостинг + SSL на 1 месяц</p>
-                <div class="item-price">115₽/мес</div>
+                <div class="item-price">*115₽/мес</div>
                 <button class="add-btn" data-item="Размещение сайта" data-price="115">Добавить</button>
               </div>
 
@@ -151,8 +148,8 @@
               <div class="item-card">
                 <h3>Telegram-бот</h3>
                 <p class="item-description">Для приёма заказов и уведомлений</p>
-                <div class="item-price">250₽</div>
-                <button class="add-btn" data-item="Telegram-бот" data-price="250">Добавить</button>
+                <div class="item-price">*400₽</div>
+                <button class="add-btn" data-item="Telegram-бот" data-price="400">Добавить</button>
               </div>
 
               <!-- Форма обратной связи -->
@@ -163,34 +160,8 @@
                 <button class="add-btn" data-item="Форма обратной связи" data-price="150">Добавить</button>
               </div>
             </div>
+            <p class="price-note"><strong>*Ориентировочная цена</strong>, зависящая от деталей задачи и затрат на внешние ресурсы, цена на которые не зависит от нас (аренда домена, хостинга)</p>
           </section>
-        </div>
-
-        <div class="builder-sidebar">
-          <div class="cart-container">
-            <h2><i class="fas fa-shopping-cart"></i> Ваша корзина</h2>
-            <div class="cart-items">
-              <!-- Здесь будут добавляться выбранные элементы -->
-              <p class="empty-cart">Выберите элементы сайта слева</p>
-            </div>
-            
-            <div class="cart-summary">
-              <div class="summary-row">
-                <span>Стоимость сайта:</span>
-                <span class="site-total">0₽</span>
-              </div>
-              <div class="summary-row">
-                <span>Стоимость услуг:</span>
-                <span class="services-total">0₽</span>
-              </div>
-              <div class="summary-row total">
-                <span>Итого:</span>
-                <span class="grand-total">0₽</span>
-              </div>
-            </div>
-            
-            <button class="checkout-btn">Оформить заказ</button>
-          </div>
         </div>
       </div>
     </div>
@@ -215,7 +186,35 @@
       </div>
     </footer>
 
-    <script src="scripts.js"></script>
-    <script src="price_builder.js"></script>
+<div class="cart-overlay">
+  <div class="builder-sidebar">
+    <button class="cart-close"><i class="fas fa-times"></i></button>
+    <div class="cart-container">
+      <h2><i class="fas fa-shopping-cart"></i> Ваша корзина</h2>
+      <div class="cart-items">
+        <p class="empty-cart">Выберите элементы сайта слева</p>
+      </div>
+      
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Стоимость сайта:</span>
+          <span class="site-total">0₽</span>
+        </div>
+        <div class="summary-row">
+          <span>Стоимость услуг:</span>
+          <span class="services-total">0₽</span>
+        </div>
+        <div class="summary-row total">
+          <span>Итого:</span>
+          <span class="grand-total">0₽</span>
+        </div>
+      </div>
+      
+      <button class="checkout-btn">Оформить заказ</button>
+    </div>
+  </div>
+</div>
+    <script src="js/scripts.js"></script>
+    <script src="js/price_builder.js"></script>
   </body>
 </html>
