@@ -11,7 +11,10 @@ document.querySelectorAll("nav ul li a").forEach((link) => {
   });
 });
 
-document.querySelector("#contact form").addEventListener("submit", function(e) {
+
+const contactForm = document.querySelector("#contact form");
+if (contactForm) {
+contactForm.addEventListener("submit", function(e) {
   // Проверка телефона (ваш существующий код)
   const phoneInput = this.querySelector('input[name="phone"]');
   const phone = phoneInput.value.replace(/\D/g, "");
@@ -42,6 +45,7 @@ document.querySelector("#contact form").addEventListener("submit", function(e) {
     e.preventDefault();
   }
 });
+}
 
   // Динамическое управление полем email
 document.addEventListener('DOMContentLoaded', function() {
@@ -74,3 +78,17 @@ document.addEventListener('DOMContentLoaded', function() {
   updateEmailField();
 });
 
+function setupVkAlert() {
+  const vkAlert = document.getElementById('vk-alert');
+  if (!vkAlert) return;
+
+  vkAlert.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Добавляем остановку всплытия
+    
+    alert('У нас пока нет страницы ВК 😢 Но скоро будет!');
+  });
+}
+
+// Запускаем после полной загрузки страницы
+window.addEventListener('DOMContentLoaded', setupVkAlert);

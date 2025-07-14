@@ -569,7 +569,7 @@ h2::after {
 }
 
 #why-us a li::before {
-  content: "Нажмите, чтобы узнать цены подробнее";
+  content: "Нажмите, чтобы узнать подробнее";
   position: absolute;
   bottom: -40px;
   left: 0;
@@ -584,8 +584,6 @@ h2::after {
 #why-us a li:hover::before {
   bottom: 0;
 }
-
-/* ...existing code... */
 
 #contact {
   position: relative;
@@ -726,6 +724,7 @@ footer p {
 
 /* Сделаем карточку с ценами кликабельной */
 #why-us li {
+  min-height: 280px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -857,4 +856,9 @@ nav ul li a:hover::after {
 .method-options input:checked + span {
   color: #007bff;
   font-weight: bold;
+}
+
+#vk-message.show {
+  display: block;
+  opacity: 1;
 }
