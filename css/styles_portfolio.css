@@ -38,7 +38,11 @@ header {
   left: 0;
   right: 0;
   height: 60px;
-  background: linear-gradient(to right, rgba(255, 188, 125, 0.788), rgb(70, 134, 253));
+  background: linear-gradient(
+    to right,
+    rgba(255, 188, 125, 0.788),
+    rgb(70, 134, 253)
+  );
   z-index: 999;
 }
 
@@ -63,11 +67,23 @@ header {
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
 
 .portfolio-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio-card:visited {
+  color: inherit;
+}
+
+.portfolio-card:active {
+  color: inherit;
 }
 
 .card-image {
@@ -126,7 +142,7 @@ header {
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
-  
+
   #portfolio-page {
     padding-top: 80px;
   }
