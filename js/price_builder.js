@@ -44,9 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
     "Админ-панель",
     "Блок каталога",
     "Адаптация под мобильные",
+    "Добавление корзины",
+    "Функция управления меню/каталогом товаров",
+    "Функция управления часами работы",
+    "Функция онлайн оплаты и/или онлайн-заказов",
+    "Другая функция",
   ];
 
-  const services = ["Карточки товаров"];
+  const services = [
+    "Карточки товаров",
+    "Размещение сайта",
+    "Telegram-бот",
+    "Форма обратной связи",
+    "Настройка Google-карты",
+    "Электронная визитка с QR-кодом",
+  ];
 
   // Диапазоны цен для элементов
   const priceRanges = {
@@ -145,20 +157,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Обработчики закрытия корзины
-  document.querySelector(".cart-close").addEventListener("click", function () {
-    document.querySelector(".cart-overlay").classList.remove("open");
-    document.querySelector(".builder-sidebar").classList.remove("open");
+  // Обработчики для изменения select'ов (функции сайта)
+  document.querySelectorAll(".item-option").forEach((select) => {
+    select.addEventListener("change", function () {
+      updateAddButtons();
+    });
   });
 
-  document
-    .querySelector(".cart-overlay")
-    .addEventListener("click", function (e) {
+  // Обработчики закрытия корзины
+  const cartCloseBtn = document.querySelector(".cart-close");
+  const cartOverlay = document.querySelector(".cart-overlay");
+  const builderSidebar = document.querySelector(".builder-sidebar");
+
+  if (cartCloseBtn && cartOverlay && builderSidebar) {
+    // Close button click handler
+    cartCloseBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeCart();
+    });
+
+    // Overlay click handler (close when clicking outside)
+    cartOverlay.addEventListener("click", function (e) {
       if (e.target === this) {
-        this.classList.remove("open");
-        document.querySelector(".builder-sidebar").classList.remove("open");
+        closeCart();
       }
     });
+
+    // ESC key handler
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && cartOverlay.classList.contains("open")) {
+        closeCart();
+      }
+    });
+  }
+
+  // Function to close cart
+  function closeCart() {
+    if (cartOverlay && builderSidebar) {
+      cartOverlay.classList.remove("open");
+      builderSidebar.classList.remove("open");
+    }
+  }
 
   // Функция добавления в корзину
   function addToCart(name, price, quantity = 1) {
@@ -270,52 +310,52 @@ document.addEventListener("DOMContentLoaded", function () {
       cartItemsEl.appendChild(itemEl);
     });
 
-    // Рассчитываем итоговую стоимость с учетом диапазонов цен
-    cart.minTotal = cart.siteTotal + cart.servicesTotal;
-    cart.maxTotal = cart.minTotal;
+    // Рассчитываем стоимость сайта с учетом диапазонов
+    let siteMinTotal = 0;
+    let siteMaxTotal = 0;
 
-    // Добавляем диапазоны для соответствующих элементов
-    for (const [name, range] of Object.entries(priceRanges)) {
-      const items = cart.items.filter((item) => item.name === name);
-      if (items.length > 0) {
-        const count = items.reduce((sum, item) => sum + item.quantity, 0);
+    // Рассчитываем стоимость услуг (только карточки товаров)
+    let servicesMinTotal = 0;
+    let servicesMaxTotal = 0;
 
-        // Вычитаем сумму элементов (по минимальной цене)
-        cart.minTotal -= items.reduce((sum, item) => sum + item.total, 0);
-        cart.maxTotal = cart.minTotal;
-
-        // Добавляем диапазон
-        cart.minTotal += count * range.min;
-        cart.maxTotal += count * range.max;
-      }
-    }
-
-    // Обновляем стоимость сайта с учетом диапазонов
-    let siteMinTotal = cart.siteTotal;
-    let siteMaxTotal = cart.siteTotal;
-
-    for (const [name, range] of Object.entries(priceRanges)) {
-      if (siteParts.includes(name)) {
-        const items = cart.items.filter((item) => item.name === name);
-        if (items.length > 0) {
-          const count = items.reduce((sum, item) => sum + item.quantity, 0);
-
-          siteMinTotal -= items.reduce((sum, item) => sum + item.total, 0);
-          siteMaxTotal = siteMinTotal;
-
-          siteMinTotal += count * range.min;
-          siteMaxTotal += count * range.max;
+    cart.items.forEach((item) => {
+      if (services.includes(item.name)) {
+        // Это услуга
+        if (priceRanges[item.name]) {
+          const range = priceRanges[item.name];
+          servicesMinTotal += range.min * item.quantity;
+          servicesMaxTotal += range.max * item.quantity;
+        } else {
+          servicesMinTotal += item.total;
+          servicesMaxTotal += item.total;
+        }
+      } else {
+        // Это часть сайта
+        if (priceRanges[item.name]) {
+          const range = priceRanges[item.name];
+          siteMinTotal += range.min * item.quantity;
+          siteMaxTotal += range.max * item.quantity;
+        } else {
+          siteMinTotal += item.total;
+          siteMaxTotal += item.total;
         }
       }
-    }
+    });
+
+    // Итоговые суммы
+    cart.minTotal = siteMinTotal + servicesMinTotal;
+    cart.maxTotal = siteMaxTotal + servicesMaxTotal;
 
     siteTotalEl.textContent =
       siteMinTotal === siteMaxTotal
         ? `${siteMinTotal}₽`
         : `${siteMinTotal}-${siteMaxTotal}₽`;
 
-    // Обновляем стоимость услуг (только карточки товаров)
-    servicesTotalEl.textContent = `${cart.servicesTotal}₽`;
+    // Обновляем стоимость услуг
+    servicesTotalEl.textContent =
+      servicesMinTotal === servicesMaxTotal
+        ? `${servicesMinTotal}₽`
+        : `${servicesMinTotal}-${servicesMaxTotal}₽`;
 
     // Обновляем итоговую стоимость
     grandTotalEl.textContent =

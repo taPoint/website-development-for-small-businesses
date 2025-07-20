@@ -1,68 +1,102 @@
-document.getElementById("burger-menu").onclick = function () {
-  document.querySelector("nav").classList.toggle("active");
-  this.classList.toggle("open");
-};
+// Burger menu functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const burgerMenu = document.getElementById("burger-menu");
+  const nav = document.querySelector("nav");
 
-// Закрытие меню при клике на пункт
-document.querySelectorAll("nav ul li a").forEach((link) => {
-  link.addEventListener("click", function () {
-    document.querySelector("nav").classList.remove("active");
-    document.getElementById("burger-menu").classList.remove("open");
-  });
+  function handleBurgerClick() {
+    nav.classList.toggle("active");
+    burgerMenu.classList.toggle("open");
+
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = nav.classList.contains("active")
+      ? "hidden"
+      : "";
+  }
+
+  if (burgerMenu && nav) {
+    // Add the click event listener
+    burgerMenu.addEventListener("click", handleBurgerClick);
+
+    // Close menu when clicking on navigation links
+    const navLinks = document.querySelectorAll("nav ul li a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        nav.classList.remove("active");
+        burgerMenu.classList.remove("open");
+        document.body.style.overflow = "";
+      });
+    });
+  }
 });
-
 
 const contactForm = document.querySelector("#contact form");
 if (contactForm) {
-contactForm.addEventListener("submit", function(e) {
-  // Проверка телефона (ваш существующий код)
-  const phoneInput = this.querySelector('input[name="phone"]');
-  const phone = phoneInput.value.replace(/\D/g, "");
-  
-  if (!((phone.length === 11 && (phone.startsWith("7") || phone.startsWith("8"))) || 
-        (phone.length === 12 && phone.startsWith("+7")))) {
-    alert("Пожалуйста, введите корректный номер телефона в формате +7XXXXXXXXXX, 7XXXXXXXXXX или 8XXXXXXXXXX");
-    phoneInput.focus();
-    e.preventDefault();
-    return;
-  }
-  
-  // Проверка выбранных методов связи
-  const checkedMethods = this.querySelectorAll('input[name="contact_method[]"]:checked');
-  if (checkedMethods.length === 0) {
-    alert("Пожалуйста, выберите хотя бы один способ связи");
-    e.preventDefault();
-    return;
-  }
-  
-  // Проверка email, если выбран email
-  const emailMethod = this.querySelector('input[name="contact_method[]"][value="email"]:checked');
-  const emailInput = this.querySelector('input[name="email"]');
-  
-  if (emailMethod && !emailInput.value) {
-    alert("Пожалуйста, укажите email, так как вы выбрали этот способ связи");
-    emailInput.focus();
-    e.preventDefault();
-  }
-});
+  contactForm.addEventListener("submit", function (e) {
+    // Проверка телефона (ваш существующий код)
+    const phoneInput = this.querySelector('input[name="phone"]');
+    const phone = phoneInput.value.replace(/\D/g, "");
+
+    if (
+      !(
+        (phone.length === 11 &&
+          (phone.startsWith("7") || phone.startsWith("8"))) ||
+        (phone.length === 12 && phone.startsWith("+7"))
+      )
+    ) {
+      alert(
+        "Пожалуйста, введите корректный номер телефона в формате +7XXXXXXXXXX, 7XXXXXXXXXX или 8XXXXXXXXXX"
+      );
+      phoneInput.focus();
+      e.preventDefault();
+      return;
+    }
+
+    // Проверка выбранных методов связи
+    const checkedMethods = this.querySelectorAll(
+      'input[name="contact_method[]"]:checked'
+    );
+    if (checkedMethods.length === 0) {
+      alert("Пожалуйста, выберите хотя бы один способ связи");
+      e.preventDefault();
+      return;
+    }
+
+    // Проверка email, если выбран email
+    const emailMethod = this.querySelector(
+      'input[name="contact_method[]"][value="email"]:checked'
+    );
+    const emailInput = this.querySelector('input[name="email"]');
+
+    if (emailMethod && !emailInput.value) {
+      alert("Пожалуйста, укажите email, так как вы выбрали этот способ связи");
+      emailInput.focus();
+      e.preventDefault();
+    }
+  });
 }
 
-  // Динамическое управление полем email
-document.addEventListener('DOMContentLoaded', function() {
+// Динамическое управление полем email
+document.addEventListener("DOMContentLoaded", function () {
   const emailField = document.querySelector('input[name="email"]');
-  const contactMethods = document.querySelectorAll('input[name="contact_method[]"]');
-  
+  const contactMethods = document.querySelectorAll(
+    'input[name="contact_method[]"]'
+  );
+
   // Проверяем выбранные методы при изменении
-  contactMethods.forEach(method => {
-    method.addEventListener('change', function() {
+  contactMethods.forEach((method) => {
+    method.addEventListener("change", function () {
       updateEmailField();
     });
   });
-  
+
   function updateEmailField() {
-    const emailMethod = document.querySelector('input[name="contact_method[]"][value="email"]:checked');
-    const anyMethod = document.querySelector('input[name="contact_method[]"][value="any"]:checked');
-    
+    const emailMethod = document.querySelector(
+      'input[name="contact_method[]"][value="email"]:checked'
+    );
+    const anyMethod = document.querySelector(
+      'input[name="contact_method[]"][value="any"]:checked'
+    );
+
     if (emailMethod || anyMethod) {
       emailField.placeholder = "Ваш Email (обязательно)";
       emailField.required = true;
@@ -73,22 +107,22 @@ document.addEventListener('DOMContentLoaded', function() {
       emailField.style.display = "block"; // Или "none" если хотите скрыть
     }
   }
-  
+
   // Инициализация при загрузке
   updateEmailField();
 });
 
 function setupVkAlert() {
-  const vkAlert = document.getElementById('vk-alert');
+  const vkAlert = document.getElementById("vk-alert");
   if (!vkAlert) return;
 
-  vkAlert.addEventListener('click', function(e) {
+  vkAlert.addEventListener("click", function (e) {
     e.preventDefault();
     e.stopPropagation(); // Добавляем остановку всплытия
-    
-    alert('У нас пока нет страницы ВК 😢 Но скоро будет!');
+
+    alert("У нас пока нет страницы ВК 😢 Но скоро будет!");
   });
 }
 
 // Запускаем после полной загрузки страницы
-window.addEventListener('DOMContentLoaded', setupVkAlert);
+window.addEventListener("DOMContentLoaded", setupVkAlert);

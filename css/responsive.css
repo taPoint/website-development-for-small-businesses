@@ -1,0 +1,447 @@
+/* Responsive CSS - Объединенные медиа-запросы для всего сайта */
+
+/* Базовые адаптивные стили для всех устройств */
+html {
+  -webkit-text-size-adjust: 100%; /* Предотвращает автоматическое увеличение текста на iOS */
+}
+
+/* Улучшенная адаптивность для сенсорных устройств */
+button,
+.button,
+input[type="submit"],
+input[type="button"],
+.add-btn,
+.cart-item-remove,
+.social-icon,
+.burger,
+nav ul li a {
+  min-height: 44px; /* Минимальная высота для сенсорных элементов */
+  min-width: 44px; /* Минимальная ширина для сенсорных элементов */
+}
+
+/* Улучшение доступности фокуса */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(0, 123, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Большие мобильные устройства и планшеты (до 768px) */
+@media (max-width: 768px) {
+  /* Общие стили */
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .section-subtitle {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+  }
+
+  /* Секции */
+  .section-main {
+    padding: 40px 15px;
+  }
+
+  /* Портфолио */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #portfolio-page {
+    padding-top: 80px;
+  }
+
+  /* Цены */
+  .page-title {
+    font-size: 2.2rem;
+    padding: 0 10px;
+  }
+
+  .price-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .price-card.main-service {
+    max-width: 85%;
+  }
+
+  .price-features li {
+    font-size: 0.95em;
+    padding: 8px 0;
+  }
+
+  .price-notice-content {
+    flex-direction: column;
+  }
+
+  /* Конструктор цен */
+  .builder-container {
+    flex-direction: column;
+  }
+
+  .builder-sidebar {
+    position: static;
+    margin-top: 30px;
+  }
+
+  /* Форматы сотрудничества */
+  .doc-block {
+    padding: 25px;
+  }
+}
+
+/* Средние мобильные устройства (до 600px) */
+@media (max-width: 600px) {
+  .portfolio-cta .button {
+    width: auto !important;
+    max-width: none !important;
+    display: inline-block !important;
+    padding: 6px 16px !important;
+  }
+
+  /* Навигация */
+  .burger {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgb(250, 231, 212),
+      rgb(221, 243, 248)
+    );
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    display: none;
+  }
+
+  nav.active {
+    display: block;
+    animation: fadeIn 0.2s;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 10px 0;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    font-size: 1.1em;
+    padding: 10px 0;
+    display: block;
+  }
+
+  header .container {
+    position: relative;
+  }
+
+  /* Стили для мобильного меню */
+  nav ul li a:hover {
+    color: #fff;
+  }
+
+  nav ul li a::after {
+    display: none;
+  }
+
+  nav ul li a:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+  }
+
+  /* Секция Hero */
+  #hero h1 {
+    font-size: 1.4em;
+  }
+
+  #hero p {
+    font-size: 1em;
+  }
+
+  #hero .button {
+    width: 95%;
+    font-size: 0.9em;
+    padding: 14px 5px;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Контактная форма */
+  #contact {
+    padding: 40px 5px;
+  }
+
+  #contact .container {
+    padding: 18px 6px 18px 6px;
+    max-width: 97vw;
+  }
+
+  #contact h2 {
+    font-size: 1.4em;
+  }
+
+  #contact .contact-form button.button {
+    font-size: 1em;
+    padding: 12px 0;
+  }
+
+  /* Форматы сотрудничества */
+  .section-main h2 {
+    font-size: 1.6em;
+  }
+
+  .section-main h3 {
+    font-size: 1.3em;
+  }
+
+  .section-main p,
+  .section-main ul li {
+    font-size: 1em;
+  }
+
+  .doc-block {
+    padding: 20px;
+  }
+
+  .doc-block h3 {
+    font-size: 1.3em;
+  }
+
+  .doc-cta {
+    font-size: 1em;
+  }
+}
+
+/* Маленькие мобильные устройства (до 480px) */
+@media (max-width: 480px) {
+  .portfolio-cta .button {
+    font-size: 0.85em;
+    padding: 10px 12px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.7em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  /* Улучшенная адаптивность изображений */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Улучшение отступов для лучшей читаемости */
+  p,
+  li {
+    line-height: 1.5;
+    margin-bottom: 1em;
+  }
+
+  /* Увеличение области нажатия для ссылок */
+  a {
+    padding: 2px;
+  }
+
+  /* Улучшение отображения форм */
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* Предотвращает масштабирование на iOS */
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+  }
+
+  /* Цены */
+  .page-title {
+    font-size: 1.9rem;
+  }
+
+  .price-card {
+    padding: 15px;
+  }
+
+  .price-amount {
+    font-size: 1.8em;
+  }
+
+  .price-period {
+    font-size: 0.8em;
+  }
+
+  .price-button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+
+  /* Специальные предложения */
+  .special-offer {
+    padding: 1.2rem;
+  }
+
+  .special-offer-title {
+    font-size: 1.5rem;
+  }
+
+  .drink-of-the-month .menu-item-skeleton.featured::after,
+  .drinks-of-the-week .menu-item-skeleton.featured::after {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    top: 10px;
+  }
+
+  /* Портфолио */
+  .portfolio-card {
+    margin-bottom: 20px;
+  }
+
+  .card-image {
+    height: 160px;
+  }
+
+  .card-content h3 {
+    font-size: 1.2em;
+  }
+
+  .card-content p {
+    font-size: 0.9em;
+  }
+
+  /* Конструктор цен */
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item-card {
+    padding: 15px;
+  }
+
+  .cart-container {
+    padding: 15px;
+  }
+}
+/* Стили для ландшафтной ориентации на мобильных устройствах */
+@media (max-width: 768px) and (orientation: landscape) {
+  #hero {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    padding: 60px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2em;
+  }
+
+  /* Улучшение навигации в ландшафтном режиме */
+  nav.active {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+
+/* Улучшение отображения таблиц на мобильных устройствах */
+@media (max-width: 600px) {
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Улучшение отображения кнопок */
+  .button,
+  button,
+  input[type="submit"] {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  /* Исключение для кнопок в строке */
+  .button.inline,
+  button.inline {
+    display: inline-block;
+    width: auto;
+  }
+
+  /* Улучшение отображения форм */
+  form {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  /* Улучшение отображения социальных иконок */
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Дополнительные улучшения для очень маленьких экранов */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.6em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  /* Уменьшение отступов */
+  .section-main {
+    padding: 30px 10px;
+  }
+
+  /* Оптимизация карточек */
+  .portfolio-card,
+  .item-card,
+  .price-card {
+    margin-bottom: 15px;
+    padding: 12px;
+  }
+}
