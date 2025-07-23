@@ -1,268 +1,267 @@
 /* Основной контейнер */
 .section-main {
-    padding: 60px 20px;
-    background-color: #ffffff;
-  }
-  
-  /* Заголовок */
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+/* Заголовок */
+.section-main h2 {
+  font-size: 2.2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  padding-top: 20px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-main h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #007bff;
+  border-radius: 2px;
+}
+
+/* Подзаголовок */
+.section-subtitle {
+  font-size: 1.4em;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-top: -10px;
+  color: #666;
+  font-weight: bold;
+}
+
+/* Заголовки h3 */
+.section-main h3 {
+  font-size: 1.5em;
+  color: #007bff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Обычные параграфы */
+.section-main p {
+  font-size: 1.3em;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Цитата (пример договора) */
+.section-main em {
+  display: block;
+  background: #eaf4ff;
+  border-left: 4px solid #007bff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-style: italic;
+  color: #222;
+}
+
+/* Списки */
+.section-main ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.section-main ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 1.05em;
+  color: #444;
+}
+
+.section-main ul li::before {
+  content: \"✔\";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Итоговый список */
+.section-main ul:last-of-type li::before {
+  content: \"📌\";
+  color: #007bff;
+}
+
+/* Итоговый параграф */
+.section-main p:last-of-type {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
   .section-main h2 {
-    font-size: 2.2em;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-    position: relative;
-    padding-bottom: 15px;
+    font-size: 1.6em;
   }
-  
-  .section-main h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: #007bff;
-    border-radius: 2px;
-  }
-  
-  /* Подзаголовок */
-  .section-subtitle {
-    font-size: 1.3em;
-    text-align: center;
-    margin-top: -10px;
-    margin-bottom: 40px;
-    color: #666;
-    font-weight: bold;
-  }
-  
-  /* Заголовки h3 */
+
   .section-main h3 {
-    font-size: 1.5em;
-    color: #007bff;
-    margin-top: 40px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 1.3em;
   }
-  
-  /* Обычные параграфы */
-  .section-main p {
-    font-size: 1.1em;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  /* Цитата (пример договора) */
-  .section-main em {
-    display: block;
-    background: #eaf4ff;
-    border-left: 4px solid #007bff;
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    font-style: italic;
-    color: #222;
-  }
-  
-  /* Списки */
-  .section-main ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-  
+
+  .section-main p,
   .section-main ul li {
-    position: relative;
-    padding-left: 28px;
-    margin-bottom: 12px;
-    font-size: 1.05em;
-    color: #444;
+    font-size: 1em;
   }
-  
-  .section-main ul li::before {
-    content: \"✔\";
-    position: absolute;
-    left: 0;
-    color: #28a745;
-    font-weight: bold;
-  }
-  
-  /* Итоговый список */
-  .section-main ul:last-of-type li::before {
-    content: \"📌\";
-    color: #007bff;
-  }
-  
-  /* Итоговый параграф */
-  .section-main p:last-of-type {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 40px;
-  }
-  
-  /* Адаптив */
-  @media (max-width: 600px) {
-    .section-main h2 {
-      font-size: 1.6em;
-    }
-  
-    .section-main h3 {
-      font-size: 1.3em;
-    }
-  
-    .section-main p,
-    .section-main ul li {
-      font-size: 1em;
-    }
-  }
+}
 
-  /* Документальный стиль */
+/* Документальный стиль */
 .document-style {
-    background-color: #f9fafb;
-    padding: 60px 20px;
-  }
-  
-  /* Основной блок */
+  background-color: #f9fafb;
+  padding: 60px 20px;
+}
+
+/* Основной блок */
+.doc-block {
+  background: #fff;
+  border: 1px solid #e1e7ed;
+  border-left: 4px solid #007bff;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.doc-block .doc-list li {
+  font-size: 1.15em;
+}
+
+/* Заголовки */
+.doc-block h3 {
+  color: #007bff;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.doc-summary {
+  background: #e9f3ff;
+  border-left: 4px solid #007bff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.doc-summary h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.doc-summary ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.doc-summary li::before {
+  content: \"📌 \";
+}
+
+/* Иконки в списках */
+.doc-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.doc-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Цитата */
+.doc-quote {
+  margin-top: 15px;
+  background: #eaf4ff;
+  padding: 15px 20px;
+  border-left: 4px solid #007bff;
+  border-radius: 6px;
+  font-style: italic;
+  color: #222;
+}
+
+/* CTA */
+.doc-cta {
+  text-align: center;
+  font-size: 1.15em;
+  font-weight: 500;
+  margin-top: 40px;
+  color: #333;
+}
+
+/* Мобилка */
+@media (max-width: 600px) {
   .doc-block {
-    background: #fff;
-    border: 1px solid #e1e7ed;
-    border-left: 4px solid #007bff;
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
   }
 
-  .doc-block .doc-list li {
-    font-size: 1.15em; 
-  }
-
-  /* Заголовки */
   .doc-block h3 {
-    color: #007bff;
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .doc-summary {
-    background: #e9f3ff;
-    border-left: 4px solid #007bff;
-    padding: 25px 30px;
-    border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-  
-  .doc-summary h3 {
-    color: #007bff;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .doc-summary ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .doc-summary li::before {
-    content: \"📌 \";
-  }
-  
-  /* Иконки в списках */
-  .doc-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .doc-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  /* Цитата */
-  .doc-quote {
-    margin-top: 15px;
-    background: #eaf4ff;
-    padding: 15px 20px;
-    border-left: 4px solid #007bff;
-    border-radius: 6px;
-    font-style: italic;
-    color: #222;
-  }
-  
-  /* CTA */
-  .doc-cta {
-    text-align: center;
-    font-size: 1.15em;
-    font-weight: 500;
-    margin-top: 40px;
-    color: #333;
-  }
-  
-  /* Мобилка */
-  @media (max-width: 600px) {
-    .doc-block {
-      padding: 20px;
-    }
-  
-    .doc-block h3 {
-      font-size: 1.3em;
-    }
-  
-    .doc-cta {
-      font-size: 1em;
-    }
+    font-size: 1.3em;
   }
 
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  .doc-cta {
+    font-size: 1em;
   }
-  
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Подсветка карточек */
-  .doc-block,
-  .doc-summary {
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  
-  .doc-block:hover,
-  .doc-summary:hover {
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-    transform: translateY(-3px);
-  }
-  
-  /* Иконки внутри списков — плавная заливка */
-  .doc-list li i,
-  .doc-summary i {
-    transition: color 0.3s ease;
-  }
-  
-  .doc-list li:hover i {
-    color: #0056b3;
-  }
-  
-  /* Мягкий переход всех ссылок */
-  a {
-    transition: all 0.3s ease;
-  }
-  
-  
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Подсветка карточек */
+.doc-block,
+.doc-summary {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.doc-block:hover,
+.doc-summary:hover {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Иконки внутри списков — плавная заливка */
+.doc-list li i,
+.doc-summary i {
+  transition: color 0.3s ease;
+}
+
+.doc-list li:hover i {
+  color: #0056b3;
+}
+
+/* Мягкий переход всех ссылок */
+a {
+  transition: all 0.3s ease;
+}

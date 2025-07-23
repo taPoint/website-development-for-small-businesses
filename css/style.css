@@ -10,6 +10,31 @@ body {
   background-color: #f4f4f4; /* Легкий фон */
 }
 
+#about,
+#services,
+#portfolio,
+#contact {
+  scroll-margin-top: 30px; /* Высота вашего хедера + небольшой отступ */
+}
+
+#advantages {
+  scroll-margin-top: -75px; /* Меньший отступ */
+}
+
+/* Для мобильных устройств можно уменьшить отступ */
+@media (max-width: 600px) {
+  #about,
+  #services,
+  #portfolio,
+  #contact {
+    scroll-margin-top: 45px;
+  }
+
+  #advantages {
+    scroll-margin-top: -75px; /* Меньший отступ */
+  }
+}
+
 .container {
   max-width: 1100px; /* Максимальная ширина контента */
   margin: 0 auto; /* Центрирование */
@@ -22,25 +47,33 @@ header {
   left: 0;
   right: 0;
   z-index: 1000; /* Убедимся, что шапка поверх всего */
-  background: linear-gradient(to right, rgb(250, 231, 212), rgb(221, 243, 248));
-  padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  background: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон */
+  backdrop-filter: blur(10px); /* Размытие фона для современного эффекта */
+  -webkit-backdrop-filter: blur(10px); /* Для Safari */
+  padding: 12px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Более мягкая и глубокая тень */
+  border-bottom: 1px solid rgba(0, 123, 255, 0.1); /* Тонкая граница снизу */
+  transition: all 0.3s ease; /* Плавные переходы */
 }
 
-/* linear-gradient(to right, rgb(255, 175, 100), rgb(120, 188, 252)) */
+header:hover {
+  box-shadow: 0 6px 25px rgba(0, 123, 255, 0.12); /* Усиление тени при наведении */
+}
 
 #border-header {
   position: fixed;
-  top: 0;
+  top: 60px; /* Размещаем под хедером */
   left: 0;
   right: 0;
-  height: 60px; /* Высота границы */
+  height: 4px; /* Тонкая линия вместо большой границы */
   background: linear-gradient(
     to right,
-    rgba(255, 188, 125, 0.788),
-    rgb(70, 134, 253)
-  );
+    #007bff,
+    #00c6ff
+  ); /* Современный градиент */
   z-index: 999; /* Под шапкой */
+  opacity: 0.9; /* Небольшая прозрачность */
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2); /* Добавляем тень для эффекта */
 }
 
 header .container {
@@ -220,6 +253,7 @@ h3 {
 #hero {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url("../images/hero-image.jpg") no-repeat center center/cover;
+  padding: 80px;
   color: #fff; /* Белый текст */
   text-align: center;
   padding: 100px 20px; /* Большие отступы */
@@ -363,11 +397,119 @@ h2::after {
 }
 
 /* Улучшенные стили для секции О нас */
+#about {
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  overflow: hidden;
+  padding: 70px 0;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.1) 0%,
+    rgba(0, 198, 255, 0.1) 100%
+  );
+  z-index: 0;
+}
+
+#about::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.05) 0%,
+    rgba(0, 198, 255, 0.05) 100%
+  );
+  z-index: 0;
+}
+
+#about .container {
+  position: relative;
+  z-index: 1;
+}
+
+#about h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 700;
+}
+
 #about p {
   max-width: 800px; /* Ограничим ширину текста */
   margin: 0 auto 30px auto; /* Центрируем и добавляем отступ снизу */
   text-align: center;
   font-size: 1.2em;
+  line-height: 1.8;
+  color: #444;
+  position: relative;
+  padding: 40px 50px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(248, 250, 252, 0.85)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05),
+    inset 0 -2px 0 rgba(0, 123, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  border: none;
+  z-index: 2;
+}
+
+#about p::before {
+  content: '"';
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 5em;
+  font-family: Georgia, serif;
+  color: rgba(0, 123, 255, 0.1);
+  line-height: 1;
+}
+
+#about p::after {
+  content: '"';
+  position: absolute;
+  bottom: -15px;
+  right: 15px;
+  font-size: 5em;
+  font-family: Georgia, serif;
+  color: rgba(0, 123, 255, 0.1);
+  line-height: 1;
+}
+
+#about p strong {
+  color: #007bff;
+  font-weight: 700;
+}
+
+#about p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 123, 255, 0.12),
+    0 3px 10px rgba(0, 0, 0, 0.08), inset 0 -3px 0 rgba(0, 123, 255, 0.25);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(248, 250, 252, 0.9)
+  );
 }
 
 /* Улучшенные стили для списков в секциях "Услуги", "Почему выбирают нас", "Гарантии" */
@@ -395,57 +537,171 @@ h2::after {
   text-align: left;
 }
 
+#guarantees {
+  position: relative;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e6f0ff 100%);
+  overflow: hidden;
+}
+
+#guarantees::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(10, 30, 239, 0.08) 0%,
+    rgba(10, 30, 239, 0.02) 70%
+  );
+  z-index: 0;
+}
+
+#guarantees::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(10, 30, 239, 0.05) 0%,
+    rgba(10, 30, 239, 0.01) 70%
+  );
+  z-index: 0;
+}
+
+#guarantees .container {
+  position: relative;
+  z-index: 1;
+}
+
 #guarantees li {
-  background: #f8f9fa; /* Немного более темный фон */
-  padding: 25px; /* Увеличим отступы */
-  border-radius: 8px; /* Скругление углов */
-  border: 2px solid #007bff; /* Толстая рамка синего цвета (можно изменить) */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
-  text-align: center; /* Центрирование текста */
-  margin-bottom: 20px; /* Отступ между элементами */
-  transition: all 0.3s ease; /* Плавные переходы */
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  padding: 35px 30px;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(10, 30, 239, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+#guarantees li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #0a1eef, #007bff);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+
+#guarantees li:hover {
+  transform: translateY(-10px);
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(10, 30, 239, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+#guarantees li:hover::before {
+  transform: scaleY(1);
 }
 
 #guarantees li h3 {
   margin-top: 0;
-  margin-bottom: 15px; /* Отступ под заголовком */
-  color: #0a1eef; /* Более темный синий для заголовка */
-  font-size: 1.6em; /* Увеличим размер заголовка */
-  font-weight: bold; /* Сделаем заголовок жирным */
+  margin-bottom: 20px;
+  color: #0a1eef;
+  font-size: 1.7em;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+#guarantees li h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #0a1eef, transparent);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+#guarantees li:hover h3::after {
+  opacity: 1;
 }
 
 #guarantees li p {
   margin-bottom: 0;
-  color: #333; /* Цвет текста описания */
-  font-size: 1.1em; /* Увеличим размер текста описания */
-}
-
-#guarantees li:hover {
-  background-color: #ffffff; /* Изменение фона при наведении */
-  transform: translateY(-5px); /* Небольшой подъем */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усиление тени */
+  color: #444;
+  font-size: 1.15em;
+  line-height: 1.7;
 }
 
 #services li {
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  display: flex; /* Снова используем Flexbox */
-  flex-direction: column; /* Элементы в столбец */
-  align-items: center; /* Выравнивание по центру по горизонтали */
-  text-align: center; /* Центрирование текста */
+  background: linear-gradient(145deg, #ffffff, #f5f7fa);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  z-index: 1;
+}
+
+#services li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  z-index: 2;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
 }
 
 #services li:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 123, 255, 0.15);
+  border-color: rgba(0, 123, 255, 0.3);
+}
+
+#services li:hover::before {
+  transform: scaleX(1);
 }
 
 #services li i {
-  font-size: 3em; /* Увеличим размер иконок */
-  color: #007bff;
-  margin-bottom: 15px; /* Отступ под иконкой */
+  font-size: 3.5em;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+#services li:hover i {
+  transform: scale(1.1);
 }
 
 #services li h3 {
@@ -459,51 +715,161 @@ h2::after {
 }
 
 /* Улучшенная стилизация секции "Портфолио" */
+#portfolio {
+  position: relative;
+  background: linear-gradient(135deg, #f9f9f9 0%, #f0f4f8 100%);
+  overflow: hidden;
+}
+
+#portfolio::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 193, 7, 0.08) 0%,
+    rgba(255, 193, 7, 0.02) 70%
+  );
+  z-index: 0;
+}
+
+#portfolio::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 193, 7, 0.05) 0%,
+    rgba(255, 193, 7, 0.01) 70%
+  );
+  z-index: 0;
+}
+
+.portfolio-items {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
 .portfolio-item {
+  position: relative;
   background: #fff;
-  padding: 25px; /* Увеличим отступы внутри */
-  border-radius: 8px; /* Слегка скруглим углы */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Более выраженная тень */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
-  cursor: pointer; /* Покажем, что элемент интерактивный */
-  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .portfolio-item:hover {
-  transform: translateY(-5px); /* Небольшой подъем при наведении */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Усилим тень при наведении */
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .portfolio-item img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-  display: block; /* Сделаем изображение блочным элементом */
-  margin-left: auto; /* Центрирование изображения */
-  margin-right: auto;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+  transition: all 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+
+.portfolio-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffc107, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover::after {
+  transform: scaleX(1);
+}
+
+.portfolio-item-content {
+  padding: 25px;
 }
 
 /* Улучшенный стиль заголовков проектов в портфолио */
 .portfolio-item h3 {
   margin-top: 0;
-  margin-bottom: 15px; /* Увеличим отступ снизу */
-  color: #333; /* Цвет заголовка (можно изменить) */
-  font-size: 1.3em; /* Немного уменьшим размер */
-  border-bottom: 2px solid #eee; /* Нижняя граница */
-  padding-bottom: 10px; /* Отступ под текстом перед границей */
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.4em;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.portfolio-item h3::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ffc107, transparent);
 }
 
 .portfolio-item p {
-  font-size: 1em;
+  font-size: 1.05em;
   color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.portfolio-item img:hover {
-  transform: scale(1.05); /* Увеличение при наведении */
+.portfolio-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio-item .view-project {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #ffc107, #ffb300);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.portfolio-item:hover .view-project {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-item .view-project:hover {
+  box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+  background: linear-gradient(135deg, #ffb300, #ffa000);
 }
 
 /* Стиль для элементов списка в секции "Наши преимущества" */
@@ -515,65 +881,186 @@ h2::after {
   gap: 30px;
 }
 
+#why-us {
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  overflow: hidden;
+}
+
+#why-us::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(40, 167, 69, 0.08) 0%,
+    rgba(40, 167, 69, 0.02) 70%
+  );
+  z-index: 0;
+}
+
+#why-us::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(40, 167, 69, 0.05) 0%,
+    rgba(40, 167, 69, 0.01) 70%
+  );
+  z-index: 0;
+}
+
+#why-us .container {
+  position: relative;
+  z-index: 1;
+}
+
 #why-us li {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(40, 167, 69, 0.08);
+}
+
+#why-us li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #28a745, #5cb85c);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
 }
 
 #why-us li:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(40, 167, 69, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-color: rgba(40, 167, 69, 0.2);
+}
+
+#why-us li:hover::before {
+  transform: scaleX(1);
 }
 
 #why-us li i {
   font-size: 3.5em;
   color: #28a745;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #28a745, #5cb85c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: transform 0.3s ease;
+  display: block; /* Чтобы иконка была на отдельной строке */
+}
+
+#why-us li:hover i {
+  transform: scale(1.1);
 }
 
 #why-us li h3 {
   margin-top: 0;
   margin-bottom: 15px;
   color: #333;
-  font-size: 1.4em;
+  font-size: 1.5em;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+#why-us li h3::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #28a745, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#why-us li:hover h3::after {
+  opacity: 1;
 }
 
 #why-us li p {
   margin-bottom: 0;
   color: #555;
   font-size: 1.1em;
+  line-height: 1.6;
 }
 
 /* Стили для ссылок в списке "Наши преимущества" */
 #why-us a li {
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+  box-shadow: 0 10px 25px rgba(40, 167, 69, 0.08), 0 1px 3px rgba(0, 0, 0, 0.03);
+  min-height: 280px; /* Фиксированная высота как у других элементов */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-#why-us a li::before {
+#why-us a li::after {
   content: "Нажмите, чтобы узнать подробнее";
   position: absolute;
   bottom: -40px;
   left: 0;
   width: 100%;
   padding: 10px;
-  background-color: rgba(0, 123, 255, 0.9);
+  background-color: rgba(40, 167, 69, 0.9);
   color: white;
   text-align: center;
   transition: bottom 0.3s ease;
+  z-index: 10;
 }
 
-#why-us a li:hover::before {
+#why-us a li:hover::after {
   bottom: 0;
+}
+
+/* Отменяем стандартное поведение для кликабельных элементов */
+#why-us a li::before {
+  display: none;
+}
+
+/* Специальный стиль для иконок в кликабельных элементах */
+#why-us a li i {
+  font-size: 3.5em;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #28a745, #5cb85c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: transform 0.3s ease;
+  display: block;
 }
 
 #contact {
   position: relative;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
     url("../images/contact.png") no-repeat center center/cover;
   color: #fff;
   text-align: center;
@@ -581,82 +1068,188 @@ h2::after {
   overflow: hidden;
 }
 
+#contact::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 123, 255, 0.15) 0%,
+    rgba(0, 123, 255, 0.05) 70%
+  );
+  z-index: 0;
+  opacity: 0.5;
+}
+
+#contact::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 123, 255, 0.15) 0%,
+    rgba(0, 123, 255, 0.05) 70%
+  );
+  z-index: 0;
+  opacity: 0.5;
+}
+
 #contact .container {
   position: relative;
   z-index: 1;
   max-width: 500px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 18px;
-  box-shadow: 0 4px 24px 0 rgba(0, 123, 255, 0.1);
-  padding: 40px 30px 32px 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px 35px;
   text-align: center;
   color: #222;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+
+#contact .container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  z-index: 2;
 }
 
 #contact h2 {
   color: #007bff;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+#contact h2::after {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
 }
 
 #contact .contact-intro,
 #contact .response-info {
   color: #444;
-  margin-top: 2px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
   font-size: 1.1em;
+  line-height: 1.6;
 }
 
 #contact .contact-info {
-  margin-bottom: 18px;
+  margin: 25px 0;
   color: #333;
-  font-size: 1em;
+  font-size: 1.05em;
+  padding: 15px;
+  background: rgba(0, 123, 255, 0.05);
+  border-radius: 12px;
+  border-left: 3px solid rgba(0, 123, 255, 0.3);
 }
 
 #contact .contact-info p {
-  margin: 4px 0;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact .contact-info p::before {
+  content: "•";
+  color: #007bff;
+  margin-right: 8px;
+  font-size: 1.2em;
 }
 
 #contact .contact-form form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 #contact .contact-form input,
 #contact .contact-form textarea {
-  padding: 12px 14px;
-  border: 1px solid #cce1ff;
-  border-radius: 7px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+  border-radius: 10px;
   font-size: 1em;
-  background: #f8fbff;
-  transition: border 0.2s;
+  background: rgba(248, 251, 255, 0.8);
+  transition: all 0.3s ease;
   resize: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 }
 
 #contact .contact-form input:focus,
 #contact .contact-form textarea:focus {
-  border: 1.5px solid #007bff;
+  border: 1px solid #007bff;
   outline: none;
   background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+#contact .contact-form textarea {
+  min-height: 120px;
 }
 
 #contact .contact-form button.button {
-  background: #007bff;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
   color: #fff;
   border: none;
-  border-radius: 7px;
-  padding: 14px 0;
+  border-radius: 10px;
+  padding: 16px 0;
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px 0 rgba(0, 123, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+#contact .contact-form button.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  z-index: -1;
 }
 
 #contact .contact-form button.button:hover {
-  background: #0056b3;
-  box-shadow: 0 4px 16px 0 rgba(0, 123, 255, 0.13);
+  background: linear-gradient(135deg, #0056b3, #007bff);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+#contact .contact-form button.button:hover::before {
+  left: 100%;
+}
+
+#contact .contact-form button.button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
 }
 
 @media (max-width: 600px) {
@@ -850,19 +1443,59 @@ nav ul li a:hover::after {
   margin-top: 40px;
 }
 
+.portfolio-cta {
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+  z-index: 2;
+}
+
 .portfolio-cta .button {
-  background: #007bff !important;
+  background: linear-gradient(135deg, #ffc107, #ffb300) !important;
   color: white;
-  padding: 12px 30px !important;
+  padding: 14px 35px !important;
   border-radius: 30px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  min-width: 250px;
+  max-width: 400px;
+  white-space: nowrap; /* Предотвращает перенос текста на десктопе */
+  box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-cta .button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+  z-index: -1;
 }
 
 .portfolio-cta .button:hover {
-  background: #0056b3;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffb300, #ffa000) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(255, 193, 7, 0.4);
+}
+
+.portfolio-cta .button:hover::before {
+  left: 100%;
+}
+
+.portfolio-cta .button:active {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(255, 193, 7, 0.3);
 }

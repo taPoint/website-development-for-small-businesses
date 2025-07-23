@@ -5,6 +5,65 @@
   margin-top: 30px;
 }
 
+/* Стили для заголовка калькулятора */
+.page-header {
+  margin-top: 90px;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #4361ee;
+}
+
+.page-title {
+  font-size: 2rem;
+  color: #333;
+  margin: 0 0 10px 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.page-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #f72585;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 20px 15px;
+    margin-bottom: 30px;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+.page-title i {
+  color: #4361ee;
+  margin-right: 10px;
+}
+
 .builder-content {
   flex: 3;
 }

@@ -56,8 +56,24 @@ textarea:focus {
   }
 
   /* Портфолио */
-  .portfolio-grid {
+  .portfolio-items {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-item {
+    max-width: 100%;
+  }
+
+  .portfolio-item img {
+    height: 180px;
+  }
+
+  .portfolio-item .view-project {
+    opacity: 1;
+    transform: translateY(0);
+    font-size: 0.85em;
+    padding: 6px 15px;
   }
 
   #portfolio-page {
@@ -107,10 +123,15 @@ textarea:focus {
 /* Средние мобильные устройства (до 600px) */
 @media (max-width: 600px) {
   .portfolio-cta .button {
-    width: auto !important;
-    max-width: none !important;
-    display: inline-block !important;
-    padding: 6px 16px !important;
+    width: 80%;
+    max-width: 90%;
+    padding: 12px 15px;
+    font-size: 0.9em;
+    white-space: normal;
+    word-break: break-word;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: block;
   }
 
   /* Навигация */
@@ -213,16 +234,20 @@ textarea:focus {
 
   /* Форматы сотрудничества */
   .section-main h2 {
-    font-size: 1.6em;
+    padding-top: 30px;
+    font-size: 1.7em;
   }
 
   .section-main h3 {
     font-size: 1.3em;
   }
 
-  .section-main p,
   .section-main ul li {
     font-size: 1em;
+  }
+
+  .section-main p {
+    font-size: 1.1em;
   }
 
   .doc-block {
@@ -443,5 +468,19 @@ textarea:focus {
   .price-card {
     margin-bottom: 15px;
     padding: 12px;
+  }
+}
+/* Исправление кнопки calculator-cta для мобильных устройств */
+@media (max-width: 600px) {
+  .calculator-cta .button {
+    width: 80%;
+    max-width: 90%;
+    padding: 12px 15px;
+    font-size: 0.9em;
+    white-space: normal;
+    word-break: break-word;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: block !important;
   }
 }
