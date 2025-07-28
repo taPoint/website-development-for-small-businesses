@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const singleAddItems = [
     "Шапка сайта",
     "Подвал сайта",
+    "Меню якорей",
     "Блок каталога",
     "Размещение сайта",
     "Форма обратной связи",
@@ -40,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const siteParts = [
     "Шапка сайта",
     "Подвал сайта",
+    "Меню якорей",
     "Смысловой блок",
     "Админ-панель",
     "Блок каталога",
@@ -399,7 +401,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Обработчик оформления заказа
   checkoutBtn.addEventListener("click", function () {
     if (cart.items.length === 0) {
-      alert("Корзина пуста! Добавьте элементы сайта.");
+      alert("Корзина пуста! Добавьте услуги-элементы.");
       return;
     }
 
@@ -408,7 +410,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ? `${cart.minTotal}₽`
         : `${cart.minTotal}-${cart.maxTotal}₽`;
 
-    alert(`Заказ оформлен! Итоговая стоимость: ${totalText}`);
+    alert(`Отправка заявки через страницу калькулятора стоимости временно недоступна! Пожалуйста, отправьте заявку через главную страницу. Итоговая стоимость: ${totalText}`);
     cart.items = [];
     updateCart();
   });

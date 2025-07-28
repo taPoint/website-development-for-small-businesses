@@ -73,7 +73,7 @@ header:hover {
   ); /* Современный градиент */
   z-index: 999; /* Под шапкой */
   opacity: 0.9; /* Небольшая прозрачность */
-  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2); /* Добавляем тень для эффекта */
+  box-shadow: 0 6px 10px rgba(0, 123, 255, 0.2); /* Добавляем тень для эффекта */
 }
 
 header .container {
@@ -83,11 +83,20 @@ header .container {
 }
 
 .logo {
-  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #424242;
-  text-shadow: 0 2px 4px rgb(220, 225, 248);
+  color: #333333;
   text-decoration: none;
+  gap: 10px; /* расстояние между логотипом и текстом */
+}
+
+.logo img {
+  width: 37px; /* можно изменить */
+  height: 37px;
+  border-radius: 15%;
+  object-fit: cover;
 }
 
 nav ul {
@@ -687,6 +696,24 @@ h2::after {
 
 #services li:hover::before {
   transform: scaleX(1);
+}
+
+#services .portfolio-cta .button {
+    background: linear-gradient(135deg, #007bff, #00c6ff) !important;
+    color: white;
+    padding: 14px 35px !important;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+    min-width: 250px;
+    max-width: 400px;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(7, 205, 255, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
 #services li i {
@@ -1378,7 +1405,6 @@ nav ul li a:hover::after {
 .social-icon img {
   width: 24px;
   height: 24px;
-  filter: invert(1);
 }
 
 #contact .contact-form select:focus {
@@ -1440,11 +1466,6 @@ nav ul li a:hover::after {
 
 .portfolio-cta {
   text-align: center;
-  margin-top: 40px;
-}
-
-.portfolio-cta {
-  text-align: center;
   margin-top: 50px;
   position: relative;
   z-index: 2;
@@ -1462,7 +1483,7 @@ nav ul li a:hover::after {
   display: inline-block;
   min-width: 250px;
   max-width: 400px;
-  white-space: nowrap; /* Предотвращает перенос текста на десктопе */
+  white-space: nowrap;
   box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
   position: relative;
   overflow: hidden;
