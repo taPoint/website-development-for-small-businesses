@@ -94,31 +94,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Функция обновления плавающей корзины
   function updateFloatingCart() {
+    const totalItems = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+
     if (!floatingCartBtn) {
       floatingCartBtn = document.createElement("div");
       floatingCartBtn.className = "cart-floating";
       floatingCartBtn.innerHTML = `
         <div class="cart-icon">
-          <i class="fas fa-cart-plus"></i>
-          <span class="cart-badge">${cart.items.reduce(
-            (sum, item) => sum + item.quantity,
-            0
-          )}</span>
+          <i class="fas fa-shopping-cart"></i>
+          <div class="cart-badge">${totalItems}</div>
         </div>
       `;
       document.body.appendChild(floatingCartBtn);
 
       floatingCartBtn.addEventListener("click", function () {
         document.querySelector(".cart-overlay").classList.add("open");
-        document.querySelector(".builder-sidebar").classList.add("open");
       });
     } else {
       const badge = floatingCartBtn.querySelector(".cart-badge");
       if (badge) {
-        const totalItems = cart.items.reduce(
-          (sum, item) => sum + item.quantity,
-          0
-        );
         badge.textContent = totalItems;
         badge.style.display = totalItems > 0 ? "flex" : "none";
       }
@@ -131,6 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
           icon.classList.remove("bounce");
         }, 1000);
       }
+    }
+
+    // Всегда показываем плавающую корзину
+    if (floatingCartBtn) {
+      floatingCartBtn.style.display = "block";
     }
   }
 
@@ -196,9 +195,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to close cart
   function closeCart() {
-    if (cartOverlay && builderSidebar) {
+    if (cartOverlay) {
       cartOverlay.classList.remove("open");
-      builderSidebar.classList.remove("open");
     }
   }
 
@@ -405,14 +403,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const totalText =
-      cart.minTotal === cart.maxTotal
-        ? `${cart.minTotal}₽`
-        : `${cart.minTotal}-${cart.maxTotal}₽`;
-
-    alert(`Отправка заявки через страницу калькулятора стоимости временно недоступна! Пожалуйста, отправьте заявку через главную страницу. Итоговая стоимость: ${totalText}`);
-    cart.items = [];
-    updateCart();
+    // Перенаправляем на главную страницу к форме контактов
+    window.location.href = "index.html#contact";
   });
 
   // Инициализация плавающей корзины

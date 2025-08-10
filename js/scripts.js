@@ -2,29 +2,57 @@
 document.addEventListener("DOMContentLoaded", function () {
   const burgerMenu = document.getElementById("burger-menu");
   const nav = document.querySelector("nav");
+  const menuOverlay = document.getElementById("menu-overlay");
 
-  function handleBurgerClick() {
-    nav.classList.toggle("active");
-    burgerMenu.classList.toggle("open");
-
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = nav.classList.contains("active")
-      ? "hidden"
-      : "";
+  function openMenu() {
+    nav.classList.add("active");
+    burgerMenu.classList.add("open");
+    menuOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
   }
 
-  if (burgerMenu && nav) {
-    // Add the click event listener
+  function closeMenu() {
+    nav.classList.remove("active");
+    burgerMenu.classList.remove("open");
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  function handleBurgerClick() {
+    if (nav.classList.contains("active")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  if (burgerMenu && nav && menuOverlay) {
+    // Add the click event listener to burger menu
     burgerMenu.addEventListener("click", handleBurgerClick);
+
+    // Close menu when clicking on overlay
+    menuOverlay.addEventListener("click", closeMenu);
 
     // Close menu when clicking on navigation links
     const navLinks = document.querySelectorAll("nav ul li a");
     navLinks.forEach((link) => {
       link.addEventListener("click", function () {
-        nav.classList.remove("active");
-        burgerMenu.classList.remove("open");
-        document.body.style.overflow = "";
+        closeMenu();
       });
+    });
+
+    // Close menu on window resize if screen becomes larger
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 600) {
+        closeMenu();
+      }
+    });
+
+    // Close menu on Escape key press
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("active")) {
+        closeMenu();
+      }
     });
   }
 });

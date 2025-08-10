@@ -52,7 +52,10 @@
   <body>
     <header id="header">
       <div class="container">
-        <a class="logo" href="index.html">TechAid Point</a>
+        <a class="logo" href="index.html">
+          <img src="images/logo.png" alt="Логотип TechAid" />
+          <span>TechAid Point</span>
+        </a>
         <div class="burger" id="burger-menu">
           <span></span>
           <span></span>
@@ -75,10 +78,10 @@
       <div class="page-header">
         <h1 class="page-title">
           <i class="fas fa-calculator"></i>
-          Калькулятор стоимости услуг
+          Калькулятор стоимости
         </h1>
         <p class="subtitle">
-          Соберите нужные элементы и сразу узнайте ориентировочную стоимость
+          Выберите нужные элементы и получите точную стоимость вашего проекта
         </p>
       </div>
 
@@ -436,13 +439,15 @@
       </div>
     </footer>
 
+    <!-- Плавающая иконка корзины создается динамически через JavaScript -->
+
     <div class="cart-overlay">
       <div class="builder-sidebar">
         <button class="cart-close"><i class="fas fa-times"></i></button>
         <div class="cart-container">
           <h2><i class="fas fa-shopping-cart"></i> Ваша корзина</h2>
           <div class="cart-items">
-            <p class="empty-cart">Выберите элементы сайта слева</p>
+            <p class="empty-cart">Выберите элементы для вашего сайта</p>
           </div>
 
           <div class="cart-summary">
@@ -460,7 +465,10 @@
             </div>
           </div>
 
-          <button class="checkout-btn">Отправить заявку</button>
+          <button class="checkout-btn">
+            <i class="fas fa-paper-plane"></i>
+            Отправить заявку
+          </button>
         </div>
       </div>
     </div>

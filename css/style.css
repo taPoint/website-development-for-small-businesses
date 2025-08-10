@@ -1,24 +1,90 @@
 html {
   scroll-behavior: smooth;
 }
+
 /* Общие стили */
 body {
   margin: 0;
-  font-family: sans-serif; /* Выберите подходящий шрифт */
+  font-family: sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #f4f4f4; /* Легкий фон */
+  background-color: #f4f4f4;
+}
+
+/* Анимации при скролле */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-left.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-right.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-scale.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Задержки для последовательной анимации */
+.scroll-animate.delay-1 {
+  transition-delay: 0.1s;
+}
+.scroll-animate.delay-2 {
+  transition-delay: 0.2s;
+}
+.scroll-animate.delay-3 {
+  transition-delay: 0.3s;
+}
+.scroll-animate.delay-4 {
+  transition-delay: 0.4s;
+}
+.scroll-animate.delay-5 {
+  transition-delay: 0.5s;
+}
+.scroll-animate.delay-6 {
+  transition-delay: 0.6s;
 }
 
 #about,
 #services,
 #portfolio,
 #contact {
-  scroll-margin-top: 30px; /* Высота вашего хедера + небольшой отступ */
+  scroll-margin-top: 30px;
 }
 
 #advantages {
-  scroll-margin-top: -75px; /* Меньший отступ */
+  scroll-margin-top: -75px;
 }
 
 /* Для мобильных устройств можно уменьшить отступ */
@@ -31,55 +97,51 @@ body {
   }
 
   #advantages {
-    scroll-margin-top: -75px; /* Меньший отступ */
+    scroll-margin-top: -75px;
   }
 }
 
 .container {
-  max-width: 1100px; /* Максимальная ширина контента */
-  margin: 0 auto; /* Центрирование */
-  padding: 0 20px; /* Отступы по бокам */
+  max-width: 1100px;
+  margin: 0 auto !important;
+  padding: 0 20px;
 }
 
 header {
-  position: fixed; /* Фиксируем шапку */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Убедимся, что шапка поверх всего */
-  background: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон */
-  backdrop-filter: blur(10px); /* Размытие фона для современного эффекта */
-  -webkit-backdrop-filter: blur(10px); /* Для Safari */
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 12px 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Более мягкая и глубокая тень */
-  border-bottom: 1px solid rgba(0, 123, 255, 0.1); /* Тонкая граница снизу */
-  transition: all 0.3s ease; /* Плавные переходы */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 header:hover {
-  box-shadow: 0 6px 25px rgba(0, 123, 255, 0.12); /* Усиление тени при наведении */
+  box-shadow: 0 6px 25px rgba(0, 123, 255, 0.12);
 }
 
 #border-header {
   position: fixed;
-  top: 60px; /* Размещаем под хедером */
+  top: 60px;
   left: 0;
   right: 0;
-  height: 4px; /* Тонкая линия вместо большой границы */
-  background: linear-gradient(
-    to right,
-    #007bff,
-    #00c6ff
-  ); /* Современный градиент */
-  z-index: 999; /* Под шапкой */
-  opacity: 0.9; /* Небольшая прозрачность */
-  box-shadow: 0 6px 10px rgba(0, 123, 255, 0.2); /* Добавляем тень для эффекта */
+  height: 4px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  z-index: 999;
+  opacity: 0.9;
+  box-shadow: 0 6px 10px rgba(0, 123, 255, 0.2);
 }
 
 header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
 .logo {
@@ -89,21 +151,55 @@ header .container {
   font-weight: bold;
   color: #333333;
   text-decoration: none;
-  gap: 10px; /* расстояние между логотипом и текстом */
+  gap: 10px;
 }
 
 .logo img {
-  width: 37px; /* можно изменить */
+  width: 37px;
   height: 37px;
   border-radius: 15%;
   object-fit: cover;
 }
 
+/* НАВИГАЦИЯ И БУРГЕР-МЕНЮ */
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #424242;
+  text-shadow: 0 2px 4px rgb(252, 246, 232);
+  font-weight: bold;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #007bff;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
 }
 
 .burger {
@@ -116,6 +212,7 @@ nav ul {
   z-index: 1001;
   position: relative;
 }
+
 .burger span {
   height: 4px;
   width: 100%;
@@ -127,56 +224,6 @@ nav ul {
   transform-origin: center;
 }
 
-/* Адаптация навигации */
-@media (max-width: 600px) {
-  .burger {
-    display: flex;
-  }
-  nav {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: linear-gradient(
-      to right,
-      rgb(250, 231, 212),
-      rgb(221, 243, 248)
-    );
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    z-index: 1000;
-    display: none;
-  }
-  nav.active {
-    display: block;
-    animation: fadeIn 0.2s;
-  }
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 10px 0;
-  }
-  nav ul li {
-    margin: 10px 0;
-  }
-  nav ul li a {
-    font-size: 1.1em;
-    padding: 10px 0;
-    display: block;
-  }
-  header .container {
-    position: relative;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/* Burger menu animation to X shape */
 .burger.open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -187,15 +234,161 @@ nav ul {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-nav ul li {
-  margin-left: 20px;
+/* МОБИЛЬНАЯ НАВИГАЦИЯ */
+@media (max-width: 600px) {
+  .burger {
+    display: flex;
+  }
+
+  nav ul li a:hover {
+    color: #fff;
+  }
+
+  nav ul li a::after {
+    display: none;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff !important;
+    box-shadow: 2px 0 20px rgba(0, 123, 255, 0.15);
+    z-index: 1003;
+    transition: left 0.3s ease;
+    border-right: 3px solid rgba(0, 123, 255, 0.2);
+    overflow-y: auto;
+  }
+
+  nav.active {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 80px 0 20px 2rem;
+    margin: 0;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  nav.active ul {
+    opacity: 1;
+  }
+
+  nav ul li {
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  nav ul li a {
+    font-size: 1.1em;
+    padding: 18px 30px 18px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    color: #333 !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    text-shadow: none;
+  }
+
+  nav ul li a::after {
+    content: "";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.2em;
+    color: #007bff;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    margin-left: auto;
+  }
+
+  nav ul li:nth-child(1) a::after {
+    content: "\f007";
+  }
+  nav ul li:nth-child(2) a::after {
+    content: "\f0c0";
+  }
+  nav ul li:nth-child(3) a::after {
+    content: "\f005";
+  }
+  nav ul li:nth-child(4) a::after {
+    content: "\f1c5";
+  }
+  nav ul li:nth-child(5) a::after {
+    content: "\f095";
+  }
+
+  nav ul li a::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    transition: left 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    background: rgba(0, 123, 255, 0.08);
+    color: #007bff !important;
+    transform: translateX(8px);
+  }
+
+  nav ul li a:hover::before {
+    left: 0;
+  }
+
+  nav ul li a:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 280px;
+    width: calc(100% - 280px);
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1002;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #424242;
-  text-shadow: 0 2px 4px rgb(252, 246, 232);
-  font-weight: bold;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Секции */
@@ -204,7 +397,7 @@ nav ul li a {
 }
 
 section:nth-child(odd) {
-  background-color: #fff; /* Чередование фона секций */
+  background-color: #fff;
 }
 
 h1,
@@ -219,22 +412,22 @@ h1 {
 }
 
 h2 {
-  font-size: 2.2em; /* Slightly larger font size */
-  font-weight: bold; /* Make the font bold */
-  color: #444; /* A slightly softer color than #333 */
-  margin-bottom: 40px; /* More space below the heading */
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 40px;
   text-align: center;
-  position: relative; /* Needed for the underline effect */
-  padding-bottom: 15px; /* Space for the underline */
+  position: relative;
+  padding-bottom: 15px;
 }
 
 .section-subtitle {
-  font-size: 1.3em; /* Увеличенный размер шрифта */
-  text-align: center; /* Выравнивание по центру */
-  margin-top: -30px; /* Отрицательный отступ сверху */
-  margin-bottom: 40px; /* Отступ снизу */
-  color: #333; /* Более темный цвет текста */
-  font-weight: bold; /* Жирное начертание шрифта */
+  font-size: 1.3em;
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: bold;
 }
 
 h3 {
@@ -245,7 +438,7 @@ h3 {
 /* Кнопки */
 .button {
   display: inline-block;
-  background: #007bff; /* Синий цвет кнопки */
+  background: #007bff;
   color: #fff;
   padding: 10px 20px;
   text-decoration: none;
@@ -254,23 +447,48 @@ h3 {
 }
 
 .button:hover {
-  background: #0056b3; /* Темнее при наведении */
+  background: #0056b3;
 }
 
 /* Улучшенные стили для секции Hero (Главная страница) */
-
 #hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../images/hero-image.jpg") no-repeat center center/cover;
-  padding: 80px;
-  color: #fff; /* Белый текст */
+  position: relative;
+  overflow: hidden;
+  color: #fff;
   text-align: center;
-  padding: 100px 20px; /* Большие отступы */
+  padding: 150px 20px;
+  padding-top: 180px;
+  z-index: 0;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://www.it-courses.by/wp-content/uploads/2018/06/20-Most-Common-Work-from-Home-Job-Titles.jpg")
+    no-repeat center center/cover;
+  filter: blur(6px);
+  transform: scale(1.1); /* Чтобы блюр не обрезался */
+  z-index: -2;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* затемнение поверх размытой картинки */
+  z-index: -1;
 }
 
 #hero .container {
-  position: relative; /* Это нужно, чтобы контент внутри контейнера был над фоном */
-  z-index: 1; /* Убедитесь, что контент виден */
+  position: relative;
+  z-index: 1;
 }
 
 #hero h1 {
@@ -359,10 +577,10 @@ h3 {
 
 @media (max-width: 600px) {
   #hero h1 {
-    font-size: 1.4em;
+    font-size: 1.6em;
   }
   #hero p {
-    font-size: 1em;
+    font-size: 1.1em;
   }
   #hero .button {
     width: 95%;
@@ -373,6 +591,10 @@ h3 {
     white-space: normal;
     word-break: break-word;
   }
+
+  #about h2 {
+    font-size: 1.5em;
+  }
 }
 
 /* Underline effect for h2 */
@@ -380,21 +602,21 @@ h2::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 50%; /* Start from the center */
-  transform: translateX(-50%); /* Center the underline */
-  width: 60px; /* Width of the underline */
-  height: 3px; /* Thickness of the underline */
-  background-color: #007bff; /* Default color of the underline */
-  border-radius: 2px; /* Slightly rounded ends */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #007bff;
+  border-radius: 2px;
 }
 
 /* Specific underline colors for h2 in different sections */
 #why-us h2::after {
-  background-color: #28a745; /* Green for advantages */
+  background-color: #28a745;
 }
 
 #portfolio h2::after {
-  background-color: #ffc107; /* Yellow/Orange for portfolio */
+  background-color: #ffc107;
 }
 
 #guarantees h2::after {
@@ -402,7 +624,7 @@ h2::after {
 }
 
 #contact h2::after {
-  background-color: #007bff; /* Blue for contact (matches form button) */
+  background-color: #007bff;
 }
 
 /* Улучшенные стили для секции О нас */
@@ -459,8 +681,8 @@ h2::after {
 }
 
 #about p {
-  max-width: 800px; /* Ограничим ширину текста */
-  margin: 0 auto 30px auto; /* Центрируем и добавляем отступ снизу */
+  max-width: 800px;
+  margin: 0 auto 30px auto;
   text-align: center;
   font-size: 1.2em;
   line-height: 1.8;
@@ -525,21 +747,18 @@ h2::after {
 #services ul,
 #why-us ul,
 #guarantees ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(280px, 1fr)
-  ); /* Адаптивная сетка для списков */
-  gap: 20px; /* Расстояние между элементами */
+  list-style: none !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 20px !important;
 }
 
 #services li,
 #why-us li,
 #guarantees li {
   background: #fff;
-  margin-bottom: 0; /* Убираем нижний отступ, так как есть gap */
+  margin-bottom: 0;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -699,21 +918,21 @@ h2::after {
 }
 
 #services .portfolio-cta .button {
-    background: linear-gradient(135deg, #007bff, #00c6ff) !important;
-    color: white;
-    padding: 14px 35px !important;
-    border-radius: 30px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: inline-block;
-    min-width: 250px;
-    max-width: 400px;
-    white-space: nowrap;
-    box-shadow: 0 8px 20px rgba(7, 205, 255, 0.3);
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(135deg, #007bff, #00c6ff) !important;
+  color: white;
+  padding: 14px 35px !important;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  min-width: 250px;
+  max-width: 400px;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(7, 205, 255, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
 #services li i {
@@ -733,12 +952,12 @@ h2::after {
 
 #services li h3 {
   margin-top: 0;
-  margin-bottom: 10px; /* Отступ под заголовком */
+  margin-bottom: 10px;
 }
 
 #services li p {
-  margin-bottom: 0; /* Убираем нижний отступ у последнего элемента */
-  word-break: break-word; /* На всякий случай оставим перенос слов */
+  margin-bottom: 0;
+  word-break: break-word;
 }
 
 /* Улучшенная стилизация секции "Портфолио" */
@@ -901,11 +1120,11 @@ h2::after {
 
 /* Стиль для элементов списка в секции "Наши преимущества" */
 #why-us ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  list-style: none !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 30px !important;
 }
 
 #why-us {
@@ -951,16 +1170,22 @@ h2::after {
   z-index: 1;
 }
 
+/* ОСНОВНЫЕ СТИЛИ ДЛЯ ВСЕХ ЭЛЕМЕНТОВ СПИСКА */
 #why-us li {
-  background: linear-gradient(145deg, #ffffff, #f8f9fa);
-  padding: 35px 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(40, 167, 69, 0.08);
+  background: linear-gradient(145deg, #ffffff, #f8f9fa) !important;
+  padding: 35px 30px !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  text-align: center !important;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(40, 167, 69, 0.08) !important;
+  height: 280px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 #why-us li::before {
@@ -996,7 +1221,7 @@ h2::after {
   -webkit-text-fill-color: transparent;
   color: transparent;
   transition: transform 0.3s ease;
-  display: block; /* Чтобы иконка была на отдельной строке */
+  display: block;
 }
 
 #why-us li:hover i {
@@ -1036,17 +1261,22 @@ h2::after {
   line-height: 1.6;
 }
 
-/* Стили для ссылок в списке "Наши преимущества" */
+/* СТИЛИ ДЛЯ КЛИКАБЕЛЬНЫХ ЭЛЕМЕНТОВ */
 #why-us a li {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(40, 167, 69, 0.2);
-  box-shadow: 0 10px 25px rgba(40, 167, 69, 0.08), 0 1px 3px rgba(0, 0, 0, 0.03);
-  min-height: 280px; /* Фиксированная высота как у других элементов */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(40, 167, 69, 0.2) !important;
+  box-shadow: 0 10px 25px rgba(40, 167, 69, 0.08), 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  height: 280px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa) !important;
+  padding: 35px 30px !important;
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
 #why-us a li::after {
@@ -1299,15 +1529,15 @@ h2::after {
 /* Стили для текста про ответ */
 .response-info {
   text-align: center;
-  margin-top: -20px; /* Поднять текст ближе к заголовку */
+  margin-top: -20px;
   margin-bottom: 30px;
-  color: #555; /* Цвет текста */
-  font-style: italic; /* Курсив */
+  color: #555;
+  font-style: italic;
 }
 
 /* Подвал */
 footer {
-  background: #333; /* Темный фон */
+  background: #333;
   color: #fff;
   text-align: center;
   padding: 20px 0;
@@ -1326,56 +1556,106 @@ footer p {
 
 /* Сделаем карточку с ценами кликабельной */
 #why-us li {
-  min-height: 280px;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-#why-us li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Эффекты при наведении на пункты меню */
-nav ul li a {
-  position: relative;
-  padding: 5px 0;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #007bff; /* Изменение цвета текста при наведении */
-}
-
-/* Подчеркивание при наведении */
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #007bff;
-  transition: width 0.3s ease;
-}
-
-nav ul li a:hover::after {
-  width: 100%;
-}
-
-/* Для мобильного меню (если нужно другой эффект) */
+/* АДАПТИВНЫЕ СТИЛИ */
 @media (max-width: 600px) {
-  nav ul li a:hover {
-    color: #fff; /* Белый текст в мобильном меню */
+  /* Адаптивные стили для секции "Наши преимущества" */
+
+  #about p {
+    font-size: 1em;
   }
 
-  nav ul li a::after {
-    display: none; /* Убираем подчеркивание в мобильной версии */
+  #why-us ul {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
 
-  nav ul li a:hover {
-    transform: translateX(5px); /* Сдвиг текста вправо при наведении */
-    transition: transform 0.3s ease;
+  #why-us li {
+    height: 250px !important;
+    padding: 25px 20px !important;
+  }
+
+  #why-us li i {
+    font-size: 3em !important;
+    margin-bottom: 20px !important;
+  }
+
+  #why-us li h3 {
+    font-size: 1.3em !important;
+    margin-bottom: 12px !important;
+  }
+
+  #why-us li p {
+    font-size: 1em !important;
+  }
+
+  /* Стили для кликабельных элементов на мобильных */
+  #why-us a li {
+    height: 250px !important;
+    padding: 25px 20px !important;
+  }
+
+  #why-us a li i {
+    font-size: 3em !important;
+    margin-bottom: 20px !important;
+  }
+
+  #why-us a li h3 {
+    font-size: 1.3em !important;
+    margin-bottom: 12px !important;
+  }
+
+  #why-us a li p {
+    font-size: 1em !important;
+  }
+}
+
+/* Адаптивные стили для планшетов */
+@media (max-width: 768px) and (min-width: 601px) {
+  #why-us ul {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 25px !important;
+  }
+
+  #why-us li {
+    height: 270px !important;
+    padding: 30px 25px !important;
+  }
+
+  #why-us li i {
+    font-size: 3.2em !important;
+    margin-bottom: 22px !important;
+  }
+
+  #why-us li h3 {
+    font-size: 1.4em !important;
+    margin-bottom: 14px !important;
+  }
+
+  #why-us li p {
+    font-size: 1.05em !important;
+  }
+
+  /* Стили для кликабельных элементов на планшетах */
+  #why-us a li {
+    height: 270px !important;
+    padding: 30px 25px !important;
+  }
+
+  #why-us a li i {
+    font-size: 3.2em !important;
+    margin-bottom: 22px !important;
+  }
+
+  #why-us a li h3 {
+    font-size: 1.4em !important;
+    margin-bottom: 14px !important;
+  }
+
+  #why-us a li p {
+    font-size: 1.05em !important;
   }
 }
 
@@ -1519,4 +1799,145 @@ nav ul li a:hover::after {
 .portfolio-cta .button:active {
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn-17,
+.btn-17 *,
+.btn-17 :after,
+.btn-17 :before,
+.btn-17:after,
+.btn-17:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-17 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.btn-17:disabled {
+  cursor: default;
+}
+
+.btn-17:-moz-focusring {
+  outline: auto;
+}
+
+.btn-17 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-17 [hidden] {
+  display: none;
+}
+
+.btn-17 {
+  border-radius: 99rem;
+  border-width: 2px;
+  padding: 0.8rem 3rem;
+  z-index: 0;
+}
+
+.btn-17,
+.btn-17 .text-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-17 .text-container {
+  display: block;
+  mix-blend-mode: difference;
+}
+
+.btn-17 .text {
+  display: block;
+  position: relative;
+}
+
+.btn-17:hover .text {
+  -webkit-animation: move-up-alternate 0.3s forwards;
+  animation: move-up-alternate 0.3s forwards;
+}
+
+@-webkit-keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.btn-17:after,
+.btn-17:before {
+  --skew: 0.2;
+  background: #fff;
+  content: "";
+  display: block;
+  height: 102%;
+  left: calc(-50% - 50% * var(--skew));
+  pointer-events: none;
+  position: absolute;
+  top: -104%;
+  transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.btn-17:after {
+  --progress: 0%;
+  left: calc(50% + 50% * var(--skew));
+  top: 102%;
+  z-index: -1;
+}
+
+.btn-17:hover:before {
+  --progress: 100%;
+}
+
+.btn-17:hover:after {
+  --progress: -102%;
 }
