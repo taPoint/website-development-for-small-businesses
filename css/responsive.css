@@ -13,7 +13,6 @@ input[type="button"],
 .add-btn,
 .cart-item-remove,
 .social-icon,
-.burger,
 nav ul li a {
   min-height: 44px; /* Минимальная высота для сенсорных элементов */
   min-width: 44px; /* Минимальная ширина для сенсорных элементов */
@@ -31,6 +30,81 @@ textarea:focus {
 
 /* Большие мобильные устройства и планшеты (до 768px) */
 @media (max-width: 768px) {
+  /* Показываем бургер-кнопку */
+  .burger {
+    display: flex !important;
+  }
+
+  /* Мобильная навигация с белым фоном */
+  nav {
+    position: fixed !important;
+    top: 72px !important; /* Под хедером с запасом */
+    left: -320px !important;
+    width: 320px !important;
+    height: calc(100vh - 72px) !important;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%) !important;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15) !important;
+    z-index: 1003 !important;
+    transition: left 0.3s ease !important;
+    overflow-y: auto !important;
+  }
+
+  nav.active {
+    left: 0 !important;
+  }
+
+  nav ul {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 30px 0 !important;
+    margin: 0 !important;
+    height: 99% !important;
+    list-style: none !important;
+  }
+
+  nav ul li {
+    margin: 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin-left: 0 !important;
+  }
+
+  nav ul li:last-child {
+    border-bottom: none !important;
+  }
+
+  nav ul li a {
+    display: block !important;
+    padding: 18px 25px !important;
+    color: #333 !important;
+    font-size: 1.1em !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+    transition: all 0.3s ease !important;
+    border-left: 4px solid transparent !important;
+    text-decoration: none !important;
+    position: relative !important;
+  }
+
+  nav ul li a:hover {
+    background: rgba(0, 123, 255, 0.08) !important;
+    color: #007bff !important;
+    border-left-color: #007bff !important;
+    padding-left: 30px !important;
+  }
+
+  nav ul li a::after {
+    display: none !important;
+  }
+
+  /* Overlay корректируется под мобильные */
+  .menu-overlay {
+    top: 72px !important;
+    left: 320px !important;
+    width: calc(100% - 320px) !important;
+    height: calc(100vh - 72px) !important;
+  }
+
   /* Общие стили */
   body {
     font-size: 16px;
@@ -122,6 +196,29 @@ textarea:focus {
 
 /* Средние мобильные устройства (до 600px) */
 @media (max-width: 600px) {
+  /* Стили для Hero секции */
+  #hero h1 {
+    font-size: 1.6em !important;
+  }
+
+  #hero p {
+    font-size: 1.1em !important;
+  }
+
+  #hero .button {
+    width: 95% !important;
+    font-size: 0.9em !important;
+    padding: 14px 5px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  #about h2 {
+    font-size: 1.5em !important;
+  }
+
   .portfolio-cta .button {
     width: 80%;
     max-width: 90%;
@@ -132,66 +229,6 @@ textarea:focus {
     box-sizing: border-box;
     margin: 0 auto;
     display: block;
-  }
-
-  /* Навигация */
-  .burger {
-    display: flex;
-  }
-
-  nav {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: linear-gradient(
-      to right,
-      rgb(250, 231, 212),
-      rgb(221, 243, 248)
-    );
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    z-index: 1000;
-    display: none;
-  }
-
-  nav.active {
-    display: block;
-    animation: fadeIn 0.2s;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 10px 0;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  nav ul li a {
-    font-size: 1.1em;
-    padding: 10px 0;
-    display: block;
-  }
-
-  header .container {
-    position: relative;
-  }
-
-  /* Стили для мобильного меню */
-  nav ul li a:hover {
-    color: #fff;
-  }
-
-  nav ul li a::after {
-    display: none;
-  }
-
-  nav ul li a:hover {
-    transform: translateX(5px);
-    transition: transform 0.3s ease;
   }
 
   /* Секция Hero */
@@ -391,12 +428,6 @@ textarea:focus {
 
   .hero-content h1 {
     font-size: 2.2em;
-  }
-
-  /* Улучшение навигации в ландшафтном режиме */
-  nav.active {
-    max-height: 80vh;
-    overflow-y: auto;
   }
 }
 

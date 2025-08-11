@@ -1,4 +1,4 @@
-// Burger menu functionality
+// Функциональность бургер-меню
 document.addEventListener("DOMContentLoaded", function () {
   const burgerMenu = document.getElementById("burger-menu");
   const nav = document.querySelector("nav");
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflow = "";
   }
 
-  function handleBurgerClick() {
+  function toggleMenu() {
     if (nav.classList.contains("active")) {
       closeMenu();
     } else {
@@ -26,14 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Проверяем, что все элементы существуют
   if (burgerMenu && nav && menuOverlay) {
-    // Add the click event listener to burger menu
-    burgerMenu.addEventListener("click", handleBurgerClick);
+    // Клик по бургер-кнопке
+    burgerMenu.addEventListener("click", toggleMenu);
 
-    // Close menu when clicking on overlay
+    // Клик по overlay - закрываем меню
     menuOverlay.addEventListener("click", closeMenu);
 
-    // Close menu when clicking on navigation links
+    // Клик по ссылкам в меню - закрываем меню
     const navLinks = document.querySelectorAll("nav ul li a");
     navLinks.forEach((link) => {
       link.addEventListener("click", function () {
@@ -41,14 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Close menu on window resize if screen becomes larger
+    // Закрываем меню при изменении размера экрана (если стал больше)
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 600) {
+      if (window.innerWidth > 768) {
         closeMenu();
       }
     });
 
-    // Close menu on Escape key press
+    // Закрываем меню по нажатию Escape
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("active")) {
         closeMenu();

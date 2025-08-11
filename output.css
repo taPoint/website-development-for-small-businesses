@@ -701,15 +701,6 @@ body {
   /* Легкий фон */
 }
 
-.container {
-  max-width: 1100px;
-  /* Максимальная ширина контента */
-  margin: 0 auto;
-  /* Центрирование */
-  padding: 0 20px;
-  /* Отступы по бокам */
-}
-
 header {
   position: fixed;
   /* Фиксируем шапку */
@@ -756,81 +747,6 @@ header .container {
   text-decoration: none;
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.burger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.burger span {
-  height: 4px;
-  background: #ffffff;
-  margin: 5px 0;
-  border-radius: 2px;
-  transition: 0.3s;
-  display: block;
-}
-
-/* Адаптация навигации */
-
-@media (max-width: 600px) {
-  .burger {
-    display: flex;
-  }
-
-  nav {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: linear-gradient(
-      to right,
-      rgb(255, 175, 100),
-      rgb(120, 188, 252)
-    );
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    z-index: 1000;
-    display: none;
-  }
-
-  nav.active {
-    display: block;
-    animation: fadeIn 0.2s;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 10px 0;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  nav ul li a {
-    font-size: 1.1em;
-    padding: 10px 0;
-    display: block;
-  }
-
-  header .container {
-    position: relative;
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -839,50 +755,6 @@ nav ul {
   to {
     opacity: 1;
   }
-}
-
-.burger.open span:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
-}
-
-.burger.open span:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
-}
-
-/* Исправим смещение для симметрии */
-
-.burger span {
-  transition: 0.3s;
-}
-
-.burger.open span:nth-child(1),
-.burger.open span:nth-child(3) {
-  width: 100%;
-  left: 0;
-  position: relative;
-}
-
-.burger.open span:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
-}
-
-.burger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.burger.open span:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #424242;
-  text-shadow: 0 2px 4px rgb(252, 246, 232);
-  font-weight: bold;
 }
 
 /* Секции */

@@ -142,6 +142,9 @@ header .container {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
+  max-width: 1100px;
+  margin: 0 auto !important;
+  padding: 0 20px;
 }
 
 .logo {
@@ -162,6 +165,8 @@ header .container {
 }
 
 /* НАВИГАЦИЯ И БУРГЕР-МЕНЮ */
+
+/* Десктопная навигация */
 nav ul {
   list-style: none;
   margin: 0;
@@ -202,185 +207,61 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
+/* Бургер-кнопка */
 .burger {
   display: none;
   flex-direction: column;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
   cursor: pointer;
-  z-index: 1001;
+  gap: 4px;
+  z-index: 1004;
   position: relative;
 }
 
 .burger span {
-  height: 4px;
-  width: 100%;
-  background: #424242;
-  margin: 4px 0;
-  border-radius: 2px;
+  width: 3rem;
+  height: 3px;
+  margin: 5px 0;
+  background: #333;
   transition: all 0.3s ease;
-  display: block;
-  transform-origin: center;
 }
 
+/* Анимация бургер-кнопки */
 .burger.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: rotate(45deg) translate(6px, 18px);
 }
+
 .burger.open span:nth-child(2) {
   opacity: 0;
 }
+
 .burger.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: rotate(-45deg) translate(6px, -18px);
 }
 
-/* МОБИЛЬНАЯ НАВИГАЦИЯ */
-@media (max-width: 600px) {
-  .burger {
-    display: flex;
-  }
-
-  nav ul li a:hover {
-    color: #fff;
-  }
-
-  nav ul li a::after {
-    display: none;
-  }
-
-  nav {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 280px;
-    height: 100vh;
-    background: #ffffff !important;
-    box-shadow: 2px 0 20px rgba(0, 123, 255, 0.15);
-    z-index: 1003;
-    transition: left 0.3s ease;
-    border-right: 3px solid rgba(0, 123, 255, 0.2);
-    overflow-y: auto;
-  }
-
-  nav.active {
-    left: 0;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 80px 0 20px 2rem;
-    margin: 0;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  nav.active ul {
-    opacity: 1;
-  }
-
-  nav ul li {
-    margin: 0;
-    width: 100%;
-    border-bottom: 1px solid rgba(0, 123, 255, 0.1);
-  }
-
-  nav ul li:last-child {
-    border-bottom: none;
-  }
-
-  nav ul li a {
-    font-size: 1.1em;
-    padding: 18px 30px 18px 25px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    color: #333 !important;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    text-decoration: none !important;
-    text-shadow: none;
-  }
-
-  nav ul li a::after {
-    content: "";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 1.2em;
-    color: #007bff;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-    margin-left: auto;
-  }
-
-  nav ul li:nth-child(1) a::after {
-    content: "\f007";
-  }
-  nav ul li:nth-child(2) a::after {
-    content: "\f0c0";
-  }
-  nav ul li:nth-child(3) a::after {
-    content: "\f005";
-  }
-  nav ul li:nth-child(4) a::after {
-    content: "\f1c5";
-  }
-  nav ul li:nth-child(5) a::after {
-    content: "\f095";
-  }
-
-  nav ul li a::before {
-    content: "";
-    position: absolute;
-    left: -100%;
-    top: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(135deg, #007bff, #00c6ff);
-    transition: left 0.3s ease;
-  }
-
-  nav ul li a:hover {
-    background: rgba(0, 123, 255, 0.08);
-    color: #007bff !important;
-    transform: translateX(8px);
-  }
-
-  nav ul li a:hover::before {
-    left: 0;
-  }
-
-  nav ul li a:hover::after {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-
-  .menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 280px;
-    width: calc(100% - 280px);
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1002;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    pointer-events: none;
-  }
-
-  .menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
+/* Overlay - затемнение только вне меню и хедера */
+.menu-overlay {
+  position: fixed;
+  top: 72px; /* Под хедером с запасом */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 72px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1002;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Без задержки по умолчанию */
+  transition-delay: 0s; /* Явно указываем отсутствие задержки */
+  pointer-events: none;
 }
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0.13s; /* Задержка только при появлении */
+}
+
+/* Мобильные стили перенесены в responsive.css */
 
 @keyframes fadeIn {
   from {
@@ -575,27 +456,7 @@ h3 {
   box-shadow: 0 3px 10px rgba(255, 87, 34, 0.6);
 }
 
-@media (max-width: 600px) {
-  #hero h1 {
-    font-size: 1.6em;
-  }
-  #hero p {
-    font-size: 1.1em;
-  }
-  #hero .button {
-    width: 95%;
-    font-size: 0.9em;
-    padding: 14px 5px;
-    min-width: 0;
-    max-width: 100%;
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  #about h2 {
-    font-size: 1.5em;
-  }
-}
+/* Медиа-запросы для мобильных перенесены в responsive.css */
 
 /* Underline effect for h2 */
 h2::after {
