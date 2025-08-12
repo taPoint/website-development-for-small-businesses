@@ -69,15 +69,15 @@
   color: #222;
 }
 
-/* Списки */
-.section-main ul {
+/* Списки (исключаем навигацию) */
+.section-main ul:not(nav ul) {
   list-style: none;
   padding-left: 0;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.section-main ul li {
+.section-main ul:not(nav ul) li {
   position: relative;
   padding-left: 28px;
   margin-bottom: 12px;
@@ -85,7 +85,7 @@
   color: #444;
 }
 
-.section-main ul li::before {
+.section-main ul:not(nav ul) li::before {
   content: \"✔\";
   position: absolute;
   left: 0;
@@ -94,7 +94,7 @@
 }
 
 /* Итоговый список */
-.section-main ul:last-of-type li::before {
+.section-main ul:not(nav ul):last-of-type li::before {
   content: \"📌\";
   color: #007bff;
 }

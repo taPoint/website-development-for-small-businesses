@@ -21,30 +21,7 @@ body {
   padding: 0 20px;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: linear-gradient(to right, rgb(250, 231, 212), rgb(221, 243, 248));
-  padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#border-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(
-    to right,
-    rgba(255, 188, 125, 0.788),
-    rgb(70, 134, 253)
-  );
-  z-index: 999;
-}
+/* Стили header'а убраны - используются из style.css */
 
 /* Стили для секции портфолио */
 #portfolio-page {

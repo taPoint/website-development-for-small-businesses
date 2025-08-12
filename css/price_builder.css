@@ -350,7 +350,7 @@
 }
 
 .cart-items {
-  max-height: 600px;
+  max-height: calc(100vh - 100px - 12rem);
   overflow-y: auto;
   margin-bottom: 1.5rem;
   padding-right: 0.5rem;
@@ -555,18 +555,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   z-index: 999;
-  display: none;
+  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 2.6rem;
   opacity: 0;
+  visibility: hidden;
   transition: all 0.3s ease;
 }
 
 .cart-overlay.open {
-  display: flex;
+  background: rgba(0, 0, 0, 0.5);
   opacity: 1;
+  visibility: visible;
 }
 
 .cart-overlay .builder-sidebar {
@@ -574,7 +577,7 @@
   border-radius: 1rem !important;
   width: 600px !important;
   max-width: 90vw !important;
-  max-height: 85vh !important;
+  max-height: calc(100vh - 100px - 4rem) !important;
   overflow-y: auto !important;
   padding: 2rem !important;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
@@ -599,9 +602,19 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  z-index: 1000;
+  z-index: 990;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Скрываем значок корзины при открытом окне корзины на мобильных и планшетах */
+@media (max-width: 1024px) {
+  .cart-floating.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+  }
 }
 
 .cart-floating .cart-icon {

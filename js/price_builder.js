@@ -109,6 +109,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       floatingCartBtn.addEventListener("click", function () {
         document.querySelector(".cart-overlay").classList.add("open");
+        // Скрываем значок корзины на мобильных и планшетах при открытии
+        if (window.innerWidth <= 1024) {
+          floatingCartBtn.classList.add("hidden");
+        }
       });
     } else {
       const badge = floatingCartBtn.querySelector(".cart-badge");
@@ -197,6 +201,10 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeCart() {
     if (cartOverlay) {
       cartOverlay.classList.remove("open");
+      // Показываем значок корзины обратно при закрытии
+      if (floatingCartBtn && floatingCartBtn.classList.contains("hidden")) {
+        floatingCartBtn.classList.remove("hidden");
+      }
     }
   }
 

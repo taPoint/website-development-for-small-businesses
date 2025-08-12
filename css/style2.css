@@ -278,7 +278,7 @@
   margin-top: 40px;
 }
 
-.calculator-cta .button {
+.calculator-cta .button:not(nav ul li a) {
   min-height: auto !important; /* Убираем жёсткую высоту */
   min-width: auto !important; /* Убираем жёсткую ширину */
   height: auto !important;
