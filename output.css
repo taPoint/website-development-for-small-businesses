@@ -701,20 +701,6 @@ body {
   /* Легкий фон */
 }
 
-header {
-  position: fixed;
-  /* Фиксируем шапку */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  /* Убедимся, что шапка поверх всего */
-  background: linear-gradient(to right, rgb(250, 231, 212), rgb(221, 243, 248));
-  padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Легкая тень */
-}
-
 /* linear-gradient(to right, rgb(255, 175, 100), rgb(120, 188, 252)) */
 
 #border-header {

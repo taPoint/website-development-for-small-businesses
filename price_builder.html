@@ -228,7 +228,7 @@
               </div>
 
               <!-- Карточки товаров -->
-              <div class="item-card">
+              <!-- <div class="item-card">
                 <h3>Карточки товаров</h3>
                 <p class="item-description">Оформление карточек для каталога</p>
                 <div class="item-price">50₽ за шт.</div>
@@ -243,6 +243,7 @@
                   />
                   <button class="quantity-btn plus">+</button>
                 </div>
+                не работает плюс минус data quantity
                 <button
                   class="add-btn"
                   data-item="Карточки товаров"
@@ -251,7 +252,7 @@
                 >
                   Добавить
                 </button>
-              </div>
+              </div> -->
             </div>
           </section>
 
@@ -352,28 +353,141 @@
 
     <section class="example-section">
       <h2>
-        🧾 Пример расчёта стоимости сайта с размещением и полным функционалом
-        (примерно 4110₽)
+        Пример расчёта стоимости сайта с размещением и полным функционалом
       </h2>
-      <ul class="price-example-list">
-        <li>Шапка: 200₽</li>
-        <li>Подвал: 125₽</li>
-        <li>3 смысловых блока: 2 × 300₽ + 200₽ = 800₽</li>
-        <li>Блок «Каталог»: 250₽</li>
-        <li>Добавление админ-панели: 350₽</li>
-        <li>Функция управления меню/каталогом товаров: 300₽</li>
-        <li>Функция корзины товаров и онлайн заказов: 300₽</li>
-        <li>6 кнопок: 6 × 15₽ = 90₽</li>
-        <li>Меню-якорей: 100₽</li>
-        <li>Google-карта: 0₽</li>
-        <li>Адаптивность: 300₽</li>
-        <li>14 карточек товаров: 12 × 50₽ + 2 × 40₽ = 680₽</li>
-        <li>Размещение сайта в интернете: *115₽ / месяц</li>
-        <li>Форма обратной связи / мессенджер: 150₽</li>
-        <li>Telegram-бот для заказов: *250₽</li>
-        <li>Электронная визитка с QR-кодом: 0₽</li>
-      </ul>
-      <p class="price-total"><strong>ИТОГО:</strong> 4110₽</p>
+      <div class="price-example-list">
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-header service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Шапка сайта</span>
+            </div>
+          </div>
+          <div class="service-price">200₽</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-shoe-prints service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Подвал (footer)</span>
+            </div>
+          </div>
+          <div class="service-price">125₽</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-cubes service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">4 смысловых блока</span>
+              <span class="service-details">3 × 300₽ + 200₽</span>
+            </div>
+          </div>
+          <div class="service-price">1100₽</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-th-large service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Блок «Каталог»</span>
+            </div>
+          </div>
+          <div class="service-price">250₽</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-user-shield service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Админ-панель</span>
+            </div>
+          </div>
+          <div class="service-price">350₽</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-cogs service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Управление каталогом товаров</span>
+            </div>
+          </div>
+          <div class="service-price">300₽</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-shopping-cart service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Корзина и онлайн заказы</span>
+              <span class="service-details">350₽ + 300₽</span>
+            </div>
+          </div>
+          <div class="service-price">650₽</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-bars service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Меню-якорей</span>
+            </div>
+          </div>
+          <div class="service-price">100₽</div>
+        </div>
+        <div class="price-item free">
+          <div class="service-info">
+            <i class="fas fa-map-marker-alt service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Google-карта</span>
+            </div>
+          </div>
+          <div class="service-price">Бесплатно</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-mobile-alt service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Адаптивность</span>
+            </div>
+          </div>
+          <div class="service-price">300₽</div>
+        </div>
+        <div class="price-item monthly">
+          <div class="service-info">
+            <i class="fas fa-globe service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Размещение в интернете</span>
+              <span class="service-details">*ориентировочная цена</span>
+            </div>
+          </div>
+          <div class="service-price">115₽/мес</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fas fa-envelope service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Форма обратной связи</span>
+            </div>
+          </div>
+          <div class="service-price">150₽</div>
+        </div>
+        <div class="price-item">
+          <div class="service-info">
+            <i class="fab fa-telegram service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Telegram-бот для заказов</span>
+              <span class="service-details">*ориентировочная цена</span>
+            </div>
+          </div>
+          <div class="service-price">250₽</div>
+        </div>
+        <div class="price-item free">
+          <div class="service-info">
+            <i class="fas fa-qrcode service-icon"></i>
+            <div class="service-text">
+              <span class="service-name">Электронная визитка с QR-кодом</span>
+            </div>
+          </div>
+          <div class="service-price">Бесплатно</div>
+        </div>
+      </div>
+      <p class="price-total"><strong>ИТОГО:</strong> 3890₽</p>
       <p class="price-note">
         <strong
           >Такой сайт полностью готов к работе: он размещён в интернете, имеет

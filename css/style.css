@@ -3,6 +3,11 @@ html {
 }
 
 /* Общие стили */
+html,
+body {
+  overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
@@ -218,16 +223,16 @@ nav ul li a:hover::after {
 }
 
 .burger span {
-  width: 3rem;
+  width: 2.4rem;
   height: 3px;
-  margin: 5px 0;
+  margin: 3px 0;
   background: #333;
   transition: all 0.3s ease;
 }
 
 /* Анимация бургер-кнопки */
 .burger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 18px);
+  transform: rotate(45deg) translate(6px, 12px);
 }
 
 .burger.open span:nth-child(2) {
@@ -235,7 +240,7 @@ nav ul li a:hover::after {
 }
 
 .burger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -18px);
+  transform: rotate(-45deg) translate(6px, -12px);
 }
 
 /* Overlay - затемнение только вне меню и хедера */
@@ -334,25 +339,26 @@ h3 {
 /* Улучшенные стили для секции Hero (Главная страница) */
 #hero {
   position: relative;
-  overflow: hidden;
+  min-height: 100vh; /* Основное изменение - минимальная высота в весь экран */
+  display: flex; /* Добавляем flex для центрирования */
+  align-items: center; /* Вертикальное центрирование */
   color: #fff;
   text-align: center;
-  padding: 150px 20px;
-  padding-top: 180px;
+  padding: 0 20px; /* Оставляем только боковые отступы */
+  box-sizing: border-box; /* Чтобы padding не увеличивал высоту */
   z-index: 0;
 }
 
 #hero::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("https://www.it-courses.by/wp-content/uploads/2018/06/20-Most-Common-Work-from-Home-Job-Titles.jpg")
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: url("https://avatars.mds.yandex.net/get-altay/998620/2a000001869c6a1cb33acdfdcad2c6bb8805/orig")
     no-repeat center center/cover;
   filter: blur(6px);
-  transform: scale(1.1); /* Чтобы блюр не обрезался */
   z-index: -2;
 }
 
@@ -370,11 +376,13 @@ h3 {
 #hero .container {
   position: relative;
   z-index: 1;
+  padding-top: 2rem; /* Добавляем отступы внутри контейнера */
+  width: 100%;
 }
 
 #hero h1 {
   color: #fff;
-  font-size: 2.8em;
+  font-size: 3.8rem;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 20px;
@@ -384,7 +392,7 @@ h3 {
 
 #hero p {
   color: #ffffffea;
-  font-size: 1.3em;
+  font-size: 2rem;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto 30px;

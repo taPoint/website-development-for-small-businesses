@@ -38,10 +38,10 @@ textarea:focus {
   /* Мобильная навигация с белым фоном */
   nav {
     position: fixed !important;
-    top: 72px !important; /* Под хедером с запасом */
+    top: 56px !important; /* Под хедером с запасом */
     left: -320px !important;
     width: 320px !important;
-    height: calc(100vh - 72px) !important;
+    height: calc(100vh - 56px) !important;
     background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%) !important;
     box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15) !important;
     z-index: 1003 !important;
@@ -99,10 +99,10 @@ textarea:focus {
 
   /* Overlay корректируется под мобильные */
   .menu-overlay {
-    top: 72px !important;
+    top: 56px !important;
     left: 320px !important;
     width: calc(100% - 320px) !important;
-    height: calc(100vh - 72px) !important;
+    height: calc(100vh - 56px) !important;
   }
 
   /* Общие стили */
@@ -197,6 +197,29 @@ textarea:focus {
 /* Средние мобильные устройства (до 600px) */
 @media (max-width: 600px) {
   /* Стили для Hero секции */
+
+  #header {
+    padding: 6px 0;
+  }
+
+  #border-header {
+    top: 53px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  #hero {
+    padding-top: 14rem;
+    padding-bottom: 12rem;
+  }
+
   #hero h1 {
     font-size: 1.6em !important;
   }
@@ -220,7 +243,7 @@ textarea:focus {
   }
 
   .portfolio-cta .button {
-    width: 80%;
+    width: 90%;
     max-width: 90%;
     padding: 12px 15px;
     font-size: 0.9em;

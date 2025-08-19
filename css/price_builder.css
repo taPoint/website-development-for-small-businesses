@@ -837,33 +837,183 @@
 }
 
 .price-example-list {
-  list-style: none;
-  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.5rem;
   margin: 0 auto 2rem;
-  max-width: 600px;
-  font-size: 1rem;
-  color: #2c3e50;
+  max-width: 1000px;
+  padding: 0;
 }
 
-.price-example-list li {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+.price-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1px solid rgba(0, 123, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.price-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+.price-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.12);
+  border-color: rgba(0, 123, 255, 0.15);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+}
+
+.price-item:hover::before {
+  transform: scaleY(1);
+}
+
+.service-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+}
+
+.service-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+  color: white;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
   transition: all 0.3s ease;
+  margin-top: 0.125rem;
+  text-align: center;
+  line-height: 1;
 }
 
-.price-example-list li:hover {
-  background: rgba(0, 123, 255, 0.02);
-  margin: 0 -1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-radius: 0.5rem;
+.service-icon i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  vertical-align: middle;
 }
 
-.price-example-list li:last-child {
-  border-bottom: none;
+.service-icon i::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  text-align: center;
+  line-height: 1;
+}
+
+.price-item:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.3);
+}
+
+.service-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.service-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.service-details {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-style: italic;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.service-price {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 0.4em 0.2rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  min-width: 90px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.25);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+}
+
+.price-item:hover .service-price {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35);
+}
+
+/* Специальные стили для бесплатных услуг */
+.price-item.free .service-price {
+  background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 100%);
+  box-shadow: 0 4px 12px rgba(111, 66, 193, 0.25);
+}
+
+.price-item.free:hover .service-price {
+  box-shadow: 0 6px 18px rgba(111, 66, 193, 0.35);
+}
+
+.price-item.free .service-icon {
+  background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 100%);
+  box-shadow: 0 4px 12px rgba(111, 66, 193, 0.2);
+}
+
+.price-item.free:hover .service-icon {
+  box-shadow: 0 6px 18px rgba(111, 66, 193, 0.3);
+}
+
+/* Специальные стили для месячных услуг */
+.price-item.monthly .service-price {
+  background: linear-gradient(135deg, #fd7e14 0%, #ff8c42 100%);
+  box-shadow: 0 4px 12px rgba(253, 126, 20, 0.25);
+}
+
+.price-item.monthly:hover .service-price {
+  box-shadow: 0 6px 18px rgba(253, 126, 20, 0.35);
+}
+
+.price-item.monthly .service-icon {
+  background: linear-gradient(135deg, #fd7e14 0%, #ff8c42 100%);
+  box-shadow: 0 4px 12px rgba(253, 126, 20, 0.2);
+}
+
+.price-item.monthly:hover .service-icon {
+  box-shadow: 0 6px 18px rgba(253, 126, 20, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -878,8 +1028,34 @@
   }
 
   .price-example-list {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
     font-size: 0.95rem;
     max-width: 100%;
+  }
+
+  .price-item {
+    padding: 1rem 1.25rem;
+  }
+
+  .service-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1rem;
+  }
+
+  .service-name {
+    font-size: 1rem;
+  }
+
+  .service-details {
+    font-size: 0.8rem;
+  }
+
+  .service-price {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    min-width: 80px;
   }
 
   .price-total {
@@ -954,11 +1130,56 @@
     font-size: 1rem;
   }
 
-  .price-example-list li {
-    padding: 0.5rem 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
+  .price-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0.75rem 1rem;
+    padding: 1rem;
+    align-items: center;
+  }
+
+  .price-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .service-info {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .service-price {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    min-width: 75px;
+    flex-shrink: 0;
+  }
+
+  .service-details {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  .service-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    margin-top: 0;
+  }
+
+  .service-text {
+    gap: 0;
+    flex: 1;
+  }
+
+  .service-name {
+    font-size: 1rem;
   }
 
   .price-total {

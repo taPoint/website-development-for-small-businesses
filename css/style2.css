@@ -1,28 +1,48 @@
 /* Стили для страницы с ценами */
 #prices {
-  padding: 60px 0;
-  background-color: #f8f9fa;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
 }
 
 #prices h1 {
   text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.8em;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+#prices h1::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  border-radius: 2px;
 }
 
 .price-intro {
   text-align: center;
   color: #666;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   font-size: 1.3em;
+  line-height: 1.6;
 }
 
 .price-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 35px;
+  margin-bottom: 50px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* .price-card {
@@ -35,23 +55,40 @@
 
 .price-card {
   text-decoration: none;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 420px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 35px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-height: 480px;
   display: flex;
   flex-direction: column;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .price-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 123, 255, 0.15),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 123, 255, 0.2);
 }
 
-.price-card {
-  border: 2px solid #007bff;
+.price-card:hover::before {
+  transform: scaleX(1);
 }
 
 #price-card-header {
@@ -76,11 +113,19 @@
 }
 
 .price-card.main-service {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f8ff 100%);
   border: 2px solid #007bff;
   grid-column: 1 / -1;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   min-height: auto;
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.15),
+    0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.price-card.main-service::before {
+  height: 6px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 50%, #28a745 100%);
 }
 
 @media screen and (max-width: 768px) {
@@ -91,51 +136,79 @@
 
 .price-card-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .price-card-header i {
-  font-size: 2.5em;
-  color: #007bff;
-  margin-bottom: 15px;
+  font-size: 3em;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 123, 255, 0.2));
 }
 
 .price-card-header h2 {
-  color: #333;
-  font-size: 1.8em;
-  margin: 10px 0;
+  color: #2c3e50;
+  font-size: 1.9em;
+  margin: 15px 0;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .price {
-  font-size: 2em;
-  color: #28a745;
-  font-weight: bold;
-  margin: 15px 0;
+  font-size: 2.2em;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
 }
 
 .description {
-  color: #666;
-  font-size: 1.1em;
-  margin-bottom: 20px;
+  color: #6c757d;
+  font-size: 1.15em;
+  margin-bottom: 25px;
   text-align: center;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.features {
+  flex-grow: 1;
 }
 
 .features h3 {
-  color: #333;
-  font-size: 1.3em;
-  margin-bottom: 15px;
+  color: #2c3e50;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
 }
 
 .features ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .features li {
-  padding: 8px 0;
-  color: #555;
+  padding: 12px 0;
+  color: #495057;
   position: relative;
-  padding-left: 25px;
+  padding-left: 30px;
+  font-size: 1.05em;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+
+.features li:hover {
+  color: #007bff;
+  transform: translateX(5px);
 }
 
 .features li:before {
@@ -143,22 +216,51 @@
   color: #28a745;
   position: absolute;
   left: 0;
+  font-weight: bold;
+  font-size: 1.2em;
+  background: rgba(40, 167, 69, 0.1);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 8px;
 }
 
 /* Стили для бесплатных услуг */
 .price-card.free-service {
-  background: #f8f9fa;
+  background: linear-gradient(145deg, #f8fff8 0%, #e8f5e8 100%);
   border: 2px dashed #28a745;
+  position: relative;
+}
+
+.price-card.free-service::before {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.price-card.free-service:hover {
+  border-color: #20c997;
+  box-shadow: 0 20px 40px rgba(40, 167, 69, 0.15),
+    0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .free-label {
-  color: #28a745;
-  font-size: 1.5em;
-  font-weight: bold;
-  background: rgba(40, 167, 69, 0.1);
-  padding: 5px 15px;
-  border-radius: 20px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: white !important;
+  background-clip: initial !important;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 25px;
   display: inline-block;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  position: relative;
 }
 
 /* Стили для примечаний к ценам */
@@ -169,88 +271,286 @@
   margin-top: 5px;
 }
 
+/* Стили для надписи "В среднем" */
+.price-label {
+  font-size: 1.1em;
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.price-label::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+  border-radius: 1px;
+}
+
+/* Контейнер для цен со скидкой */
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 15px 0;
+}
+
+/* Зачеркнутая старая цена */
+.price-old {
+  font-size: 1.3em;
+  color: #999;
+  text-decoration: line-through;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Бейдж скидки */
+.discount-badge {
+  background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+  color: white;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+  animation: pulse-discount 2s infinite;
+}
+
+@keyframes pulse-discount {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.5);
+  }
+}
+
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
+  #prices {
+    padding: 60px 0;
+  }
+
+  #prices h1 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+  }
+
+  .price-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px;
+  }
+
   .price-card {
-    padding: 20px;
+    padding: 25px;
+    min-height: 400px;
   }
 
   .price-card-header h2 {
-    font-size: 1.5em;
+    font-size: 1.6em;
+  }
+
+  .price-card-header i {
+    font-size: 2.5em;
+    margin-bottom: -1.4rem;
+    padding-top: 1rem;
   }
 
   .price {
+    font-size: 1.9em;
+  }
+
+  .price-card.main-service {
+    max-width: 100%;
+  }
+
+  .features li {
+    padding: 10px 0;
+    padding-left: 25px;
+  }
+
+  .features li:before {
+    width: 18px;
+    height: 18px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  #prices {
+    padding: 40px 0;
+  }
+
+  #prices h1 {
     font-size: 1.8em;
+  }
+
+  .price-grid {
+    padding: 0 10px;
+    gap: 20px;
+  }
+
+  .price-card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .price-card-header h2 {
+    font-size: 1.4em;
+  }
+
+  .price {
+    font-size: 1.7em;
+  }
+
+  .free-label {
+    font-size: 1em;
+  }
+
+  .description {
+    font-size: 1em;
+  }
+
+  .features h3 {
+    font-size: 1.2em;
+  }
+
+  .features li {
+    font-size: 0.95em;
   }
 }
 
 /* Стили для блока с уведомлением о ценах */
 .price-notice {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 123, 255, 0.15) 0%,
-    rgba(40, 167, 69, 0.15) 100%
-  );
-  border-radius: 12px;
-  padding: 25px;
-  margin: 30px 0 40px;
-  border-left: 4px solid #007bff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(145deg, #ffffff 0%, #f0f8ff 100%);
+  border-radius: 25px;
+  padding: 35px;
+  margin: 40px auto 50px;
+  max-width: 1200px;
+  border: 2px solid rgba(0, 123, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 123, 255, 0.1), 0 8px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-notice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 50%, #ff4757 100%);
 }
 
 .price-notice-content {
   display: flex;
   align-items: flex-start;
-  gap: 25px;
+  gap: 30px;
 }
 
 .price-notice-icon {
-  font-size: 2.2em;
-  color: #007bff;
-  padding: 20px; /* Увеличил padding для круглости */
-  background: white;
+  font-size: 2.8em;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 25px;
+  background-color: white;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
   flex-shrink: 0;
-  width: 60px; /* Фиксированная ширина */
-  height: 60px; /* Фиксированная высота */
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.price-notice-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.1) 0%,
+    rgba(255, 71, 87, 0.1) 100%
+  );
+  border-radius: 50%;
+  z-index: -1;
 }
 
 .price-notice-text h3 {
-  color: #0056b3;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  font-size: 1.5em;
+  background: linear-gradient(135deg, #2c3e50 0%, #007bff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.8em;
   font-weight: 700;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .price-notice-text p {
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 18px;
-  font-size: 1.1em;
-  font-weight: 500;
+  color: #495057;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-size: 1.15em;
+  font-weight: 400;
 }
 
 .price-guarantee {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(0, 123, 255, 0.1);
-  padding: 14px 18px;
-  border-radius: 8px;
-  color: #004a9c;
+  gap: 15px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.1) 0%,
+    rgba(40, 167, 69, 0.1) 100%
+  );
+  padding: 18px 25px;
+  border-radius: 15px;
+  color: #495057;
   font-weight: 600;
-  border: 1px solid rgba(0, 123, 255, 0.2);
+  border: 2px solid rgba(0, 123, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.price-guarantee:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
 }
 
 .price-guarantee i {
-  font-size: 1.3em;
-  color: #007bff;
+  font-size: 1.5em;
+  background: linear-gradient(135deg, #007bff 0%, #28a745 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @media (max-width: 768px) {
@@ -275,27 +575,77 @@
 
 .calculator-cta {
   text-align: center;
-  margin-top: 40px;
+  margin: 50px 0 40px;
 }
 
 .calculator-cta .button:not(nav ul li a) {
-  min-height: auto !important; /* Убираем жёсткую высоту */
-  min-width: auto !important; /* Убираем жёсткую ширину */
+  min-height: auto !important;
+  min-width: auto !important;
   height: auto !important;
-  display: inline-block !important; /* Возвращаем нормальное поведение */
-  background: #007bff;
+  display: inline-block !important;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
   color: white;
-  padding: 12px 30px;
-  border-radius: 30px;
-  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 1rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   transition: all 0.3s ease;
-  max-width: 300px;
+  font-size: 0.95em;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+  border: none;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 460px) {
+  .calculator-cta .button:not(nav ul li a) {
+    padding: 0.7rem 1rem;
+  }
+}
+
+.calculator-cta .button:not(nav ul li a)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.calculator-cta .button:not(nav ul li a):hover::before {
+  left: 100%;
 }
 
 .calculator-cta .button:hover {
-  background: #0056b3;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.3);
+}
+
+/* Стили для disclaimer */
+.price-disclaimer {
+  font-size: 1.2em;
+  margin: 40px auto 30px;
+  color: #007bff;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.05) 0%,
+    rgba(0, 123, 255, 0.1) 100%
+  );
+  border-radius: 15px;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+  line-height: 1.6;
 }
