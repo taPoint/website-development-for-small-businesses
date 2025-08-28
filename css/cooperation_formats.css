@@ -234,7 +234,7 @@
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fade-in.visible {
+.fade-in.animate-in {
   opacity: 1;
   transform: translateY(0);
 }

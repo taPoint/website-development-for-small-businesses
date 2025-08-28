@@ -1678,6 +1678,7 @@ footer p {
 .btn-17:before {
   border: 0 solid;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .btn-17 {
